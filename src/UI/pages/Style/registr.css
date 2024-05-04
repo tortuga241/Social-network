@@ -1,0 +1,42 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+.LoginOrRegisterDiv {
+    width: 500px;
+    height: 130px;
+    border: solid 1px;
+    border-radius: 20px;
+    margin: auto;
+    background: var(--COLOR-1, #2D2F30);
+    gap: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.LoginOrRegisterDiv .SingInDiv {
+    width: 150px;
+    height: 20px;
+    font-size: 25pt;
+    font-weight: 600;
+}
+
+.LoginOrRegisterDiv button{
+    width: 180px;
+    height: 40px;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    background: var(--COLOR-2, #3C4245);   
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.SingInBut.active button {
+    background: var(--COLOR-3, #3B5355);
+    /* Другие стили для активной кнопки */
+}

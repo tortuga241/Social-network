@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import Layout from "../../Layouts/layout";
+import Layout from '../../Layouts/layout.jsx'
+import './Style/registr.css';
+import '../../App.css'
 
 const Registr = () => {
     const [isSignIn, setIsSignIn] = useState(true); // Добавляем состояние для отслеживания режима входа/регистрации
@@ -8,8 +10,8 @@ const Registr = () => {
         <div className="MainDivRegistrPage">
             <Layout />
             <div className="LoginOrRegisterDiv">
-                <div className="SingInBut"><button onClick={() => setIsSignIn(true)}>Sign In</button></div>
-                <div className="RegistrBut"><button onClick={() => setIsSignIn(false)}>Register</button></div>
+            <div className={`SingInBut ${isSignIn ? 'active' : ''}`}><button onClick={() => setIsSignIn(true)}>Вход</button></div>
+                <div className={`SingInBut ${!isSignIn ? 'active' : ''}`}><button onClick={() => setIsSignIn(false)}>Регистрация</button></div>
             </div><br />
             {isSignIn ? (
                 <div className="SingInDiv">
@@ -40,7 +42,7 @@ const Registr = () => {
                     <div className="CheckBoxAgreements">
                         <span className="RememborInput"><input type="checkbox" /> Я соглашаюсь с пользовательским соглашением</span>
                     </div>
-                    <div className="RegistrButBottom"></div>
+                    <div className="RegistrButBottom"><button>Создать аккаунт</button></div>
                 </div>
             )}
         </div>

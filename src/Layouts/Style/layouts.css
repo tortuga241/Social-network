@@ -2,7 +2,9 @@
     display: flex;
     flex-direction: row;
     height: 80px;
-    border: 1px solid;
+    margin-bottom: 50px;
+    background: var(--COLOR-1, #2D2F30);
+    color: white;
 }
 
 .HeaderLogo {
