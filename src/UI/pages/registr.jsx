@@ -15,34 +15,38 @@ const Registr = () => {
             </div><br />
             {isSignIn ? (
                 <div className="SingInDiv">
-                    <p>Номер телефона</p>
-                    <div className="PhoneNumberInput"></div>
-                    <p>Пароль</p>
-                    <div className="PasswordInput"></div>
+                    <p className="TextContentSingInDiv">Номер телефона</p>
+                    <div className="PhoneNumberInput">
+                        <input type="text" placeholder=" Номер телефона или почта" style={{ width: '90%', borderRadius: '10px', height: '30px',color: 'white', background: 'var(--COLOR-2, #3C4245)', border: 'none', fontSize: '15px'}}/>
+                    </div>
+                    <p className="TextContentSingInDiv">Пароль</p>
+                    <div className="PasswordInput">
+                        <input type="password" placeholder=" Введите пороль" style={{ width: '90%', borderRadius: '10px', height: '30px',color: 'white', background: 'var(--COLOR-2, #3C4245)', border: 'none', fontSize: '15px'}}/>
+                    </div><br />
                     <div className="HelperSingInDiv">
                         <span className="RememborInput"><input type="checkbox" /> Запомнить меня</span>
                         <span className="ForgottenPassword">Забыли пароль?</span>
                     </div>
-                    <div className="SingInButBottom"></div>
+                    <div className="SingInButBottom"><button className="SingInButBot">Войти</button></div>
                 </div>
             ) : (
                 <div className="RegistrDiv">
                     <div className="RegistrInputs">
-                        <p>Номер телефона</p>
-                        <input type="text" placeholder="Ваш номер телефона"/>
-                        <p>Имя</p>
-                        <input type="text" placeholder="Введите имя" />
-                        <p>Фамилия</p>
-                        <input type="text" placeholder="Введите Фамилию"/>
-                        <p>Пароль</p>
-                        <input type="text" placeholder="Придумайте пороль"/>
-                        <p>Подтвердите пароль</p>
-                        <input type="text" placeholder="Введите пороль"/>
-                    </div>
+                        <p className="TextContentRegistrDiv">Номер телефона</p>
+                        <input type="text" placeholder=" Номер телефона или почта"  style={{ width: '90%', borderRadius: '10px', height: '30px',color: 'white', background: 'var(--COLOR-2, #3C4245)', border: 'none', fontSize: '15px'}}/>
+                        <p className="TextContentRegistrDiv">Имя</p>
+                        <input type="text" placeholder=" Введите имя"  style={{ width: '90%', borderRadius: '10px', height: '30px',color: 'white', background: 'var(--COLOR-2, #3C4245)', border: 'none', fontSize: '15px'}}/>
+                        <p className="TextContentRegistrDiv">Фамилия</p>
+                        <input type="text" placeholder=" Введите Фамилию"  style={{ width: '90%', borderRadius: '10px', height: '30px',color: 'white', background: 'var(--COLOR-2, #3C4245)', border: 'none', fontSize: '15px'}}/>
+                        <p className="TextContentRegistrDiv">Пароль</p>
+                        <input type="password" placeholder=" Придумайте пороль"  style={{ width: '90%', borderRadius: '10px', height: '30px',color: 'white', background: 'var(--COLOR-2, #3C4245)', border: 'none', fontSize: '15px'}}/>
+                        <p className="TextContentRegistrDiv">Подтвердите пароль</p>
+                        <input type="password" placeholder="Введите пороль"  style={{ width: '90%', borderRadius: '10px', height: '30px',color: 'white', background: 'var(--COLOR-2, #3C4245)', border: 'none', fontSize: '15px'}}/>
+                    </div><br />
                     <div className="CheckBoxAgreements">
                         <span className="RememborInput"><input type="checkbox" /> Я соглашаюсь с пользовательским соглашением</span>
-                    </div>
-                    <div className="RegistrButBottom"><button>Создать аккаунт</button></div>
+                    </div><br />
+                    <div className="RegistrButBottom"><button className="RegistrButBot">Создать аккаунт</button></div>
                 </div>
             )}
         </div>

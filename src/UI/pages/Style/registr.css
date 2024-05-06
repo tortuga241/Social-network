@@ -3,10 +3,19 @@
     margin: 0px;
 }
 
+.MainDivRegistrPage {
+    height: 100%;
+}
+
+/* 
+==============================================================
+Выбор регистрация или вход
+============================================================== 
+*/
+
 .LoginOrRegisterDiv {
     width: 500px;
     height: 130px;
-    border: solid 1px;
     border-radius: 20px;
     margin: auto;
     background: var(--COLOR-1, #2D2F30);
@@ -39,4 +48,117 @@
 .SingInBut.active button {
     background: var(--COLOR-3, #3B5355);
     /* Другие стили для активной кнопки */
+}
+
+
+
+/* 
+==============================================================
+Вход
+============================================================== 
+*/
+
+
+
+.SingInDiv {
+    width: 500px;
+    height: 300px;
+    background: var(--COLOR-1, #2D2F30);
+    border-radius: 20px;
+    margin: auto;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.TextContentSingInDiv {
+    font-size: 17px;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+.PhoneNumberInput {
+    margin-left: 33px;
+    margin-top: 5px;
+}
+
+.PasswordInput {
+    margin-left: 33px;
+    margin-top: 5px;
+}
+
+.HelperSingInDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.RememborInput {
+    margin-left: 30px;
+}
+
+.ForgottenPassword {
+    margin-right: 50px;
+    color: #999999;
+    font-weight: 50;
+}
+
+.SingInButBot {
+    width: 430px;
+    height: 49px;
+    margin-top: 30px;
+    font-size: 20px;
+    margin-left: 30px;
+    border-radius: 40px;
+    opacity: 0px;
+    cursor: pointer;
+    border: none;
+    background-color: #3C4245;
+    color: white;
+}
+
+
+
+/* 
+==============================================================
+Регистрация
+============================================================== 
+*/
+
+
+.RegistrDiv {
+    width: 500px;
+    height: 500px;
+    background: var(--COLOR-1, #2D2F30);
+    border-radius: 20px;
+    margin: auto;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.RegistrInputs {
+    margin-left: 33px;
+    margin-top: 5px;
+}
+
+.TextContentRegistrDiv {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 17px;
+}
+
+.RegistrButBot {
+    width: 430px;
+    height: 49px;
+    margin-top: 10px;
+    font-size: 20px;
+    margin-left: 30px;
+    border-radius: 40px;
+    opacity: 0px;
+    cursor: pointer;
+    border: none;
+    background-color: #3C4245;
+    color: white;
 }

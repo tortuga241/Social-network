@@ -1,14 +1,19 @@
-import { useState } from 'react'
-// import Layout from './Layouts/layout.jsx';
+import React from 'react';
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Registr from './UI/pages/registr.jsx';
-import './App.css'
+import UserProfile from './UI/pages/UserProfile.jsx';
+import './App.css';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <div>
-      <Registr />
+      <Routes>
+          <Route path='/' element={<UserProfile />} />
+          <Route path='/registration' element={<Registr />}/>
+      </Routes>
     </div>
   )
 }
