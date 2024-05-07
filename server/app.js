@@ -4,12 +4,21 @@ const bodyParser = require('body-parser')
 
 // Database
 const sequelize = require('./database/pool')
+
 const UsersTab = require('./database/users')
+const PostsTab = require('./database/posts')
+const MessagesTab = require('./database/messages')
 
 // Routers
+const UalRouter = require('./routers/fileLoaders/userAvatarLoaderRouter')
+const UblRouter = require('./routers/fileLoaders/userBackgroundLoaderRouter')
+const PilRouter = require('./routers/fileLoaders/postImageLoaderRouter')
+const MflRouter = require('./routers/fileLoaders/messageFileLoader')
+
 const signinRouter = require('./routers/signinRouter')
-const UalRouter = require('./routers/userAvatarLoaderRouter')
 const recoveryPassword = require('./routers/forgetPassword')
+const postRouter = require('./routers/postRouter')
+const messageRouter = require('./routers/messageRouter')
 
 // Package options
 const app = express()
@@ -24,20 +33,21 @@ app.listen(3000, ()=>{
 
 app.use('/', signinRouter)
 app.use('/', UalRouter)
+app.use('/', UblRouter)
+app.use('/', PilRouter)
+app.use('/', MflRouter)
+app.use('/post', postRouter)
+app.use('/message', messageRouter)
 app.use('/recoveryPassword', recoveryPassword)
 
-// app.post('/create', async(req,res)=>{
-//     const data = req.body
-
-//     await UsersTab.create({
-//         name: data.name,
-//         age: data.age
-//     })
-//     res.end('200')
-// })
-// app.get('/users', async(req,res)=>{
-//     const users = await UsersTab.findAll()
-
-//     res.end(JSON.stringify(users))
-// })
-
+// POST /userAvatarUpload
+// POST /userBackgroundUpload
+// POST /postImageUpload
+// POST /messageFileUpload
+// POST /post/add
+// GET /post/
+// GET /post/findId
+// GET /post/findAuthor
+// GET /post/reposts
+// POST /message/add
+// POST /message/findFromTo
