@@ -1,0 +1,39 @@
+.MainDivMainMenu {
+    width: 180px;
+    height: 500px;  
+    border-radius: 10px;
+}
+
+.FirstPartMenu {
+    height: 295px;
+    background: var(--COLOR-1, #2D2F30);
+    border-radius: 10px;
+    border: none;
+}
+
+.TextContentMenu {
+    color: white;
+    font-size: 17px;
+    font-weight: 300;
+}
+
+.TextMenu{
+    padding-left: 20%;
+    font-size: 17px;
+    height: 28px;
+    padding-top: 5px;
+}
+
+.TextMenu:hover {
+    /* Цвет фона при наведении */
+    background-color: #3B5355;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.SecondPartMenu {
+    height: 132px;
+    background: var(--COLOR-1, #2D2F30);
+    border-radius: 10px;
+    border: none;
+}
