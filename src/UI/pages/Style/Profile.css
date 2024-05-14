@@ -1,0 +1,4 @@
+.DivForMain {
+    display: flex;
+    flex-direction: row;
+}
