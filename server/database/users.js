@@ -37,6 +37,12 @@ const UsersTab = sequelize.define('myUsers', {
     location: {
         type: DataTypes.STRING
     },
+    role: {
+        type: DataTypes.STRING
+    },
+    private: {
+        type: DataTypes.BOOLEAN
+    },
 });
 
 module.exports = UsersTab;

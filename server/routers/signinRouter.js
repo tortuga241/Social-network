@@ -20,7 +20,8 @@ let checkedAccount = {
     avatarPath: null,
     backgroundPath: null,
     description: null,
-    location: null
+    location: null,
+    private: null,
 }
 let confirmCode = ''
 
@@ -166,7 +167,9 @@ router.post('/register', mwRegConfig, mwSimilarEmail, mwSimilarLogin, async(req,
         avatarPath: 'standartAvatar.jpg',
         backgroundPath: null,
         description: '',
-        location: 'Не указан'
+        location: 'Не указан',
+        role: 'user',
+        private: true,
     }
 
     console.log('AAAAA:' + JSON.stringify(checkedAccount.email))
