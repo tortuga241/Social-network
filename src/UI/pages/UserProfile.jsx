@@ -8,10 +8,8 @@ const UserProfile = () => {
     return (
         <div className="MainDivUserProfile">
             <Layout />
-            <div className="DivForMain">
-                <MainMenu />
-                <ProfileMainInfo />
-            </div>
+            <MainMenu />
+            <ProfileMainInfo />
         </div>
     )
 }

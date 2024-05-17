@@ -7,24 +7,22 @@ const ProfileMainInfo = () => {
             <div className="backgroundImageDiv"></div>
             <div className="UserInfoDiv">
                 <div className="SettingButDiv">
-                    <button className="SettingBut">Настройки</button>
+                    <button className="SettingBut"></button>
                 </div>
                 <div className="MoreInfoDiv">
-                    <button className="MoreInfoBut">Подробнее</button>
+                    <button className="MoreInfoBut"></button>
                 </div>
                 <div className="UserProfileInfo">
-                    <div className="UserAvatar">
-                        <div className="UserState"></div>
-                    </div>
-                    <div className="UserName">Декурвина Деблядор</div>
-                    <span style={{ color: 'white'}}>...</span>
-                    <div className="UserCity">Талдыкорган</div>
+                    <div className="UserAvatar"></div>
+                    <div className="UserName"></div>
+                    ...
+                    <div className="UserCity"></div>
                 </div>
                 <div className="EditUserProfile">
-                    <button className="EditBut">Редактировать профиль</button>
+                    <button className="EditBut"></button>
                 </div>
                 <div className="MoreDiv">
-                    <button className="MoreBut">Ещё</button>
+                    <button className="MoreBut"></button>
                 </div>
             </div>
         </div>
