@@ -24,11 +24,6 @@
     font-size: 17px;
     height: 28px;
     padding-top: 5px;
-}
-
-.TextMenu:hover {
-    /* Цвет фона при наведении */
-    background-color: #3B5355;
     border-radius: 10px;
     cursor: pointer;
 }
@@ -38,4 +33,9 @@
     background: var(--COLOR-1, #2D2F30);
     border-radius: 10px;
     border: none;
+}
+
+.TextMenu.active {
+    background: var(--COLOR-3, #3B5355);
+    color: white; /* Active text color */
 }

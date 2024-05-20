@@ -10,7 +10,7 @@ const layout = () => {
                 <input
                     type="text"
                     placeholder="  Поиск"
-                    style={{width: '250px', height: '20px', borderRadius: '5px', border: '2px solid'}}
+                    className="InputHeader"
                 />
             </div>
             <div className="HeaderUserCurcleAvatar"></div>

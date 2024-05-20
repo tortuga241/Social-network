@@ -55,9 +55,3 @@ const Registr = () => {
 }
 
 export default Registr;
-
-
-
-
-
-

@@ -15,7 +15,7 @@ const ProfileMainInfo = () => {
                 <div className="UserProfileInfo">
                     <div className="UserAvatar">
                         <div className="UserState"></div>
-                    </div>
+                    </div><br />
                     <div className="UserName">Декурвина Деблядор</div>
                     <span style={{ color: 'white'}}>...</span>
                     <div className="UserCity">Талдыкорган</div>
