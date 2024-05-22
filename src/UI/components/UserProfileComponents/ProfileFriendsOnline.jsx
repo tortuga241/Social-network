@@ -7,7 +7,7 @@ const ProfileFriendsOnline = () => {
             <div className="LeftSide">
                 <div className="FriendsInfo"></div>
                 <div className="Buts">
-                    <button className="But1">Все друзья <div className="kolvoFriend">2121</div></button>
+                    <button className="But1">Все друзья<div className="kolvoFriend">241</div></button>
                     <button className="But2">Ещё</button>
                 </div>
             </div>
