@@ -166,7 +166,8 @@ router.post('/register', mwRegConfig, mwSimilarEmail, mwSimilarLogin, async(req,
         avatarPath: 'standartAvatar.jpg',
         backgroundPath: null,
         description: '',
-        location: 'Не указан'
+        location: 'Не указан',
+        role: 'user'
     }
 
     console.log('AAAAA:' + JSON.stringify(checkedAccount.email))

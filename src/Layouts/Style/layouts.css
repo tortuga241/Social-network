@@ -1,42 +1,64 @@
 .Header {
     display: flex;
-    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
     height: 80px;
+    padding: 0 10%;
     margin-bottom: 50px;
     background: var(--COLOR-1, #2D2F30);
     color: white;
+    box-sizing: border-box;
+}
+
+.HeaderLogoLink {
+    text-decoration: none;
+    color: inherit;
 }
 
 .HeaderLogo {
     font-size: 24pt;
     font-weight: 600;
-    margin-top: 15px;
-    margin-left: 16%;
+    font-family: "Rubik", sans-serif;
 }
 
 .HeaderSearchBar {
-    width: 250px;
-    height: 20px;
-    padding-top: 25px;
-    margin-left: 5%;
+    flex-grow: 1;
+    margin: 0 20px;
 }
 
-.HeaderUserCurcleAvatar{
+.HeaderSearchBar input {
+    width: 100%;
+    height: 20px;
+    border-radius: 5px;
+    border: 2px solid;
+}
+
+.HeaderUserCurcleAvatar {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     border: 1px solid;
-    margin-top: 10px;
-    position: absolute;
-    right: 15%;
 }
 
-.InputHeader {
-    width: 250px;
-    height: 20px;
-    border-radius: 5px;
-    border: none;
-    background-color: #3C4245;
-    font-size: 16px;
-    font-weight: 500;
+@media (max-width: 768px) {
+    .Header {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding: 20px 10px;
+    }
+
+    .HeaderLogo {
+        margin: 10px 0;
+    }
+
+    .HeaderSearchBar {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .HeaderUserCurcleAvatar {
+        margin: 10px 0;
+    }
 }
