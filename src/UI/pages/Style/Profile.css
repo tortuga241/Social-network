@@ -1,0 +1,13 @@
+.DivForMain {
+    display: flex;
+    flex-direction: row;
+    width: 100%; /* Задать фиксированную ширину для родительского элемента */
+    height: 450px;
+}
+
+.ProfileMore {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 100%; /* Установить ширину элемента */
+}

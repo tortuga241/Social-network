@@ -1,0 +1,46 @@
+.MainDivSubscrideProfile {
+    width: 50%;
+    height: 240px;
+    background: var(--COLOR-1, #2D2F30);
+    color: white;
+    border-radius: 10px;
+    margin-left: 30%;
+    padding-top: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.LeftSide {
+    width: 100%;
+}
+
+.Butos {
+    margin-left: 2.5%;
+}
+
+.ButSub {
+    min-width: 150px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    background: var(--COLOR-2, #3C4245);
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 8px;
+}
+
+.SubButKolvo {
+    margin-left: 5px;
+    color: #b1b1b1;
+}
+
+.SubList {
+    width: 95%;
+    margin: auto;
+    padding-top: 20px;
+}

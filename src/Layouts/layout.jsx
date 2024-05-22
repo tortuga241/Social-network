@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import './Style/layouts.css';
+import '../App.css'
 
 const layout = () => {
     
