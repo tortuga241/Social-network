@@ -5,6 +5,7 @@ import Registr from './UI/pages/registr.jsx';
 import UserProfile from './UI/pages/UserProfile.jsx';
 import ForgotPassword from './UI/components/ForgotPasswordPage/FofgotPasswordPage.jsx';
 import CreateNewPasswordPage from './UI/components/ForgotPasswordPage/CreateNewPasswordPage.jsx';
+import NewsPage from './UI/pages/NewsPage.jsx';
 import './App.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path='/register' element={<Registr />}/>
           <Route path='/forgotPassword' element={<ForgotPassword/>}/>
           <Route path='/createNewPasswordPage' element={<CreateNewPasswordPage/>}/>
+          <Route path='/feed' element={<NewsPage/>} />
       </Routes>
     </div>
   )
