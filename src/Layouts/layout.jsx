@@ -1,8 +1,8 @@
-import { React, useState } from "react";
+import React from "react";
 import './Style/layouts.css';
-import '../App.css'
+import '../App.css';
 
-const layout = () => {
+const Layout = () => {
     
     return (
         <div className="Header">
@@ -10,8 +10,7 @@ const layout = () => {
             <div className="HeaderSearchBar">
                 <input
                     type="text"
-                    placeholder="  Поиск"
-                    style={{width: '250px', height: '20px', borderRadius: '5px', border: '2px solid'}}
+                    placeholder="Поиск"
                 />
             </div>
             <div className="HeaderUserCurcleAvatar"></div>
@@ -19,4 +18,4 @@ const layout = () => {
     )
 }
 
-export default layout;
+export default Layout;

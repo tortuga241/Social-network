@@ -49,6 +49,7 @@
 
 .SingInBut.active button {
     background: var(--COLOR-3, #3B5355);
+    color: #90F6FF;
     /* Другие стили для активной кнопки */
 }
 
@@ -77,14 +78,8 @@ input[type="checkbox"] {
     cursor: pointer;
 }
 
-/* label {
-    width: 13px; 
-    height: 13px; 
-    background-color: #2D2F30;
-    border: solid 1px #ffffff;
-    border-radius: 50%; 
-    cursor: pointer;
-} */
+
+
 
 .RememborInput {
 
@@ -151,6 +146,7 @@ input{
 
 }
 
+
 .HelperSingInDiv {
     display: flex;
     flex-direction: row;
@@ -177,8 +173,13 @@ input{
     opacity: 0px;
     cursor: pointer;
     border: none;
-    background-color: #3B5355;
+    background-color: #3C4245;
     color: white;
+}
+
+.SingInButBot:hover{
+    background-color: #3B5355;
+    color:#90F6FF;
 }
 
 
@@ -192,7 +193,7 @@ input{
 
 .RegistrDiv {
     width: 500px;
-    height: 580px;
+    height: 655px;
     background: var(--COLOR-1, #2D2F30);
     border-radius: 20px;
     margin: auto;
@@ -227,6 +228,11 @@ input{
     border: none;
     background-color: #3C4245;
     color: white;
+}
+
+.RegistrButBot:hover{
+    background-color: #3B5355;
+    color:#90F6FF;
 }
 
 

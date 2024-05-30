@@ -1,13 +1,541 @@
+.MainDivUserProfile {
+    display: flex;
+    flex-direction: column;
+}
+
+.MainContentPage{
+    display: flex;
+    margin: auto;
+}
+
 .DivForMain {
     display: flex;
-    flex-direction: row;
-    width: 100%; /* Задать фиксированную ширину для родительского элемента */
+    flex-direction: column;
+    width: 320px; /* Задать фиксированную ширину для родительского элемента */
     height: 450px;
 }
 
 .ProfileMore {
     display: flex;
     flex-direction: column;
-    margin: auto;
     width: 100%; /* Установить ширину элемента */
+}
+
+
+
+
+
+
+
+
+
+/* Часть с профелем  */
+
+.MainDivProfileInfo {
+    width: 100%;
+    background: var(--COLOR-1, #2D2F30);
+    height: 450px;
+    /* margin-left: 2%; */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.backgroundImageDiv {
+    width: 100%;
+    height: 300px;
+    background-image: url('https://sun9-77.userapi.com/impf/FdYzj0eMw5KPY35drAKFVPStGsuX7EqaxAScDA/aEtGZAWuVeU.jpg?size=1024x341&quality=96&crop=0,77,1024,341&sign=faa428c1cfb81e0971723fb7589dd71c&c_uniq_tag=niLGTQmufS94oO8n_42oVh_vBi9XdpqYV0-S7WZwAWU&type=helpers');
+    -webkit-mask: linear-gradient(#000 20%, #0002 95%, #0000);
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.UserInfoDiv {
+    width: 100%;
+    height: 130px;
+    background: var(--COLOR-1, #2D2F30);
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    justify-content: space-around;
+    padding-top: 50px;
+}
+
+.SettingBut {
+    width: 150px;
+    height: 30px;
+    background: var(--COLOR-2, #3C4245);
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+}
+
+.MoreInfoBut {
+    width: 150px;
+    height: 30px;
+    background: var(--COLOR-2, #3C4245);
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+}
+
+.EditBut {
+    width: 220px;
+    height: 30px;
+    background: var(--COLOR-2, #3C4245);
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+}
+
+.MoreBut {
+    width: 80px;
+    height: 30px;
+    background: var(--COLOR-2, #3C4245);
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+}
+
+.UserProfileInfo {
+    width: 200px;
+    text-align: center;
+    margin-top: -40px;
+}
+
+.UserAvatar {
+    width: 135px;
+    height: 135px;
+    border-radius: 50%;
+    background-color: white;
+    margin-top: -100px;
+    margin-left: 30px;
+    background-image: url('https://images.unsplash.com/photo-1595757816291-ab4c1cba0fc2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cmVkfGVufDB8fDB8fHww');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.UserName {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center; /* Центрируем текст */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Добавляем тень */
+}
+
+.UserCity {
+    color: rgb(179, 179, 179);
+    font-size: 15px;
+    font-weight: 300;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+/* ============================================================================================
+--------------------------------------------------------------------------------------------
+В скором времени
+============================================================================================
+-------------------------------------------------------------------------------------------- */
+
+/* width: 160px;
+height: 160px;
+background-color: #ccc;
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+border-radius: 50%;
+margin-right: 700px;
+margin-top: -80px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); */
+
+
+
+
+/* ============================================================================================
+--------------------------------------------------------------------------------------------
+В скором времени
+============================================================================================
+-------------------------------------------------------------------------------------------- */
+
+
+/* .profile-main .user-statys-1{
+    width: 15px;
+    height: 15px;
+    background-color: rgb(13, 147, 209);
+    border: solid 3px black;
+    border-radius: 50%;
+    position: absolute;
+    left: 0px;
+    bottom: 75px;
+    left: 227px;
+    z-index: 6;
+}
+.profile-main .user-statys-2{
+    width: 15px;
+    height: 15px;
+    background-color: rgb(255, 174, 0);
+    border: solid 3px black;
+    border-radius: 50%;
+    position: absolute;
+    left: 0px;
+    bottom: 75px;
+    left: 227px;
+    display: none;
+    z-index: 6;
+}
+.profile-main .user-statys-3{
+    width: 15px;
+    height: 15px;
+    border: solid 3px black;
+    background-color: gray;
+    border-radius: 50%;
+    position: absolute;
+    left: 0px;
+    bottom: 75px;
+    left: 227px;
+    display: none;
+    z-index: 6;
+} */
+
+
+/* Часть с друзьями */
+.MainDivContainer {
+    width: 100%;
+    height: 150px;
+    color: white;
+    border-radius: 10px;
+    /* margin-left: 30%; */
+    padding-top: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.LeftSide {
+    display: flex;
+    flex-direction: column;
+    width: 49%;
+    height: 150px;
+    background: var(--COLOR-1, #2D2F30);
+    color: white;
+    border-radius: 10px;
+}
+
+.RightSide {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 150px;
+    background: var(--COLOR-1, #2D2F30);
+    color: white;
+    margin-left: 2%;
+    border-radius: 10px;
+}
+
+.FriendsInfo {
+    width: 90%;
+    height: 80px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.kolvoFriend {
+    margin-left: 5px;
+}
+
+.Buts {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.But1 {
+    min-width: 150px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    background: var(--COLOR-2, #3C4245);
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 8px;
+}
+
+.But2 {
+    width: 80px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    background: var(--COLOR-2, #3C4245);
+    color: white;
+    border-radius: 10px;
+}
+
+.But3{
+    width: 100px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    background: var(--COLOR-2, #3C4245);
+    color: white;
+    border-radius: 10px;
+}
+
+
+
+
+/* Часть с фотографиями в профеле */
+.MainDivProfilePhotoContent {
+    width: 100%;
+    height: 500px;
+    background: var(--COLOR-1, #2D2F30);
+    color: white;
+    border-radius: 10px;
+    /* margin-left: 30%; */
+    padding-top: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.DivPhoto {
+    width: 96%;
+    height: 395px;
+    margin: auto;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.mainPhoto {
+    width: 40%;
+    height: 375px;
+    background-color: gray;
+    border-radius: 10px;
+}
+
+.miniPhoto {
+    width: 58%;
+    height: 350px;
+    display: grid;
+    grid-template-columns: repeat(3, 33.5%);
+    grid-template-rows: repeat(2, 53%);
+    gap: 1%;
+    margin-left: 1%;
+}
+
+.photos {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    border-radius: 10px;
+}
+
+.FilterPhoto {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.photoBut1, .photoBut2 {
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: var(--COLOR-2, #3C4245);
+    color: white;
+    margin-left: 20px;
+}
+
+.photoBut2 {
+    width: 200px;
+    margin-left: 110%;
+}
+
+.photoBut1.active, .photoBut2.active {
+    background: var(--COLOR-3, #3B5355);
+}
+
+
+/* Часть с подписками */
+.MainDivSubscrideProfile {
+    width: 100%;
+    height: 240px;
+    background: var(--COLOR-1, #2D2F30);
+    color: white;
+    border-radius: 10px;
+    /* margin-left: 30%; */
+    padding-top: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.LeftSide {
+    width: 100%;
+}
+
+.Butos {
+    margin-left: 2.5%;
+}
+
+.ButSub {
+    min-width: 150px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    background: var(--COLOR-2, #3C4245);
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 8px;
+}
+
+.SubButKolvo {
+    margin-left: 5px;
+    color: #b1b1b1;
+}
+
+.SubList {
+    width: 95%;
+    margin: auto;
+    padding-top: 20px;
+}
+
+
+
+
+
+
+/* Часть с добавлением поста */
+.addContent {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 102.5%;
+}
+
+.form {
+    flex: 1;
+    margin-right: 20px;
+    margin-top: 40px;
+}
+
+#myTextField {
+    width: 100%;
+    height: auto;
+    resize: vertical;
+}
+
+.form .fa-regular.fa-image {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.add-post {
+    background: var(--COLOR-1, #2D2F30);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.addContent .form .add-post input {
+    background-color: rgb(199, 199, 199);
+    margin-top: 5px;
+    color: black;
+}
+
+button#addButton {
+    background-color: #4CAF50;
+    color: #fff; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    padding: 10px 20px; 
+    font-size: 16px;
+    width: 240px;
+}
+
+.avatar {
+    /* Add styles for the avatar */
+}
+
+.name {
+    /* Add styles for the name */
+}
+
+.post-img {
+    /* Add styles for the post image */
+}
+
+form {
+    display: flex;
+    align-items: center;
+}
+
+textarea {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 18px;
+    color: #fff;
+    width: 100%;
+    word-wrap: break-word;
+    resize: none;
+    overflow: hidden;
+}
+
+#button-images {
+    margin-right: 5px;
+    font-size: 20px;
+    border: none; 
+    background: none;
+    cursor: pointer; 
+    text-decoration: none; 
+    color: inherit;
+    padding: 0;
+}
+
+.fa-regular.fa-image {
+    /* Add styles for the image icon */
+}
+
+#button-output {
+    background: var(--COLOR-3, #3B5355);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
 }
