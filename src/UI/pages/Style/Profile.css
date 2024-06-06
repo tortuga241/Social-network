@@ -23,6 +23,14 @@
 
 
 
+/* Иконки в профеле */
+.IconProfBut {
+    width: 15px;
+    height: 15px;
+    color: white;
+    margin-left: 3px;
+}
+
 
 
 
@@ -32,10 +40,10 @@
 /* Часть с профелем  */
 
 .MainDivProfileInfo {
-    width: 100%;
+    width: 820px;
     background: var(--COLOR-1, #2D2F30);
-    height: 450px;
-    /* margin-left: 2%; */
+    height: 370px;
+    margin-left: 30px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -55,7 +63,7 @@
 
 .UserInfoDiv {
     width: 100%;
-    height: 130px;
+    height: 110px;
     background: var(--COLOR-1, #2D2F30);
     display: flex;
     flex-direction: row;
@@ -72,16 +80,7 @@
     cursor: pointer;
     border: none;
     border-radius: 8px;
-}
-
-.MoreInfoBut {
-    width: 150px;
-    height: 30px;
-    background: var(--COLOR-2, #3C4245);
-    color: white;
-    cursor: pointer;
-    border: none;
-    border-radius: 8px;
+    margin-left: 40px;
 }
 
 .EditBut {
@@ -94,29 +93,20 @@
     border-radius: 8px;
 }
 
-.MoreBut {
-    width: 80px;
-    height: 30px;
-    background: var(--COLOR-2, #3C4245);
-    color: white;
-    cursor: pointer;
-    border: none;
-    border-radius: 8px;
-}
-
 .UserProfileInfo {
     width: 200px;
     text-align: center;
-    margin-top: -40px;
+    margin-top: -50px;
+    /* margin-left: 50px; */
 }
 
 .UserAvatar {
-    width: 135px;
-    height: 135px;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
     background-color: white;
     margin-top: -100px;
-    margin-left: 30px;
+    margin-left: 45px;
     background-image: url('https://images.unsplash.com/photo-1595757816291-ab4c1cba0fc2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cmVkfGVufDB8fDB8fHww');
     background-size: cover;
     background-position: center;
@@ -124,7 +114,7 @@
     background-size: cover;
 }
 
-.UserName {
+.UserNameProfile {
     color: white;
     font-size: 18px;
     font-weight: 500;
@@ -213,23 +203,23 @@ box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); */
 
 /* Часть с друзьями */
 .MainDivContainer {
-    width: 100%;
+    width: 820px;
     height: 150px;
     color: white;
     border-radius: 10px;
-    /* margin-left: 30%; */
     padding-top: 20px;
     overflow: hidden;
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-bottom: 20px;
+    margin-left: 30px;
 }
 
 .LeftSide {
     display: flex;
     flex-direction: column;
-    width: 49%;
+    width: 410px;
     height: 150px;
     background: var(--COLOR-1, #2D2F30);
     color: white;
@@ -239,7 +229,7 @@ box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); */
 .RightSide {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 820px;
     height: 150px;
     background: var(--COLOR-1, #2D2F30);
     color: white;
@@ -248,7 +238,6 @@ box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); */
 }
 
 .FriendsInfo {
-    width: 90%;
     height: 80px;
     margin: auto;
     display: flex;
@@ -306,12 +295,12 @@ box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); */
 
 /* Часть с фотографиями в профеле */
 .MainDivProfilePhotoContent {
-    width: 100%;
+    width: 820px;
     height: 500px;
     background: var(--COLOR-1, #2D2F30);
     color: white;
     border-radius: 10px;
-    /* margin-left: 30%; */
+    margin-left: 30px;
     padding-top: 20px;
     overflow: hidden;
     display: flex;
@@ -373,7 +362,7 @@ box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); */
 
 .photoBut2 {
     width: 200px;
-    margin-left: 110%;
+    margin-left: 85px;
 }
 
 .photoBut1.active, .photoBut2.active {
@@ -383,17 +372,17 @@ box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); */
 
 /* Часть с подписками */
 .MainDivSubscrideProfile {
-    width: 100%;
+    width: 820px;
     height: 240px;
     background: var(--COLOR-1, #2D2F30);
     color: white;
     border-radius: 10px;
     /* margin-left: 30%; */
-    padding-top: 20px;
-    overflow: hidden;
+    padding-top: 20px;    overflow: hidden;
     display: flex;
     flex-direction: column;
     margin-top: 20px;
+    margin-left: 30px;
 }
 
 .LeftSide {
@@ -427,115 +416,4 @@ box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); */
     width: 95%;
     margin: auto;
     padding-top: 20px;
-}
-
-
-
-
-
-
-/* Часть с добавлением поста */
-.addContent {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    width: 102.5%;
-}
-
-.form {
-    flex: 1;
-    margin-right: 20px;
-    margin-top: 40px;
-}
-
-#myTextField {
-    width: 100%;
-    height: auto;
-    resize: vertical;
-}
-
-.form .fa-regular.fa-image {
-    margin-right: 10px;
-    font-size: 20px;
-}
-
-.add-post {
-    background: var(--COLOR-1, #2D2F30);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-}
-
-.addContent .form .add-post input {
-    background-color: rgb(199, 199, 199);
-    margin-top: 5px;
-    color: black;
-}
-
-button#addButton {
-    background-color: #4CAF50;
-    color: #fff; 
-    border: none; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    padding: 10px 20px; 
-    font-size: 16px;
-    width: 240px;
-}
-
-.avatar {
-    /* Add styles for the avatar */
-}
-
-.name {
-    /* Add styles for the name */
-}
-
-.post-img {
-    /* Add styles for the post image */
-}
-
-form {
-    display: flex;
-    align-items: center;
-}
-
-textarea {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-    margin-right: 10px;
-    font-size: 18px;
-    color: #fff;
-    width: 100%;
-    word-wrap: break-word;
-    resize: none;
-    overflow: hidden;
-}
-
-#button-images {
-    margin-right: 5px;
-    font-size: 20px;
-    border: none; 
-    background: none;
-    cursor: pointer; 
-    text-decoration: none; 
-    color: inherit;
-    padding: 0;
-}
-
-.fa-regular.fa-image {
-    /* Add styles for the image icon */
-}
-
-#button-output {
-    background: var(--COLOR-3, #3B5355);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
 }

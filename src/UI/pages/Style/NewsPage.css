@@ -6,6 +6,7 @@
 .MainContentPage{
     display: flex;
     margin: auto;
+    width: 1050px;
 }
 
 .DivForMain {
@@ -18,118 +19,118 @@
 .NewsPageMore {
     display: flex;
     flex-direction: column;
-    width: 100%; /* Установить ширину элемента */
-}
-
-
-
-
-
-
-
-
-/* Часть с добавлением поста */
-.addContent {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    width: 102.2%;
-}
-
-.form {
-    flex: 1;
-    margin-right: 20px;
-    margin-top: 40px;
-}
-
-#myTextField {
-    width: 100%;
-    height: auto;
-    resize: vertical;
-}
-
-.form .fa-regular.fa-image {
-    margin-right: 10px;
-    font-size: 20px;
-}
-
-.add-post {
-    background: var(--COLOR-1, #2D2F30);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-}
-
-.addContent .form .add-post input {
-    background-color: rgb(199, 199, 199);
-    margin-top: 5px;
-    color: black;
-}
-
-button#addButton {
-    background-color: #4CAF50;
-    color: #fff; 
-    border: none; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    padding: 10px 20px; 
-    font-size: 16px;
-    width: 240px;
-}
-
-.avatar {
-    /* Add styles for the avatar */
-}
-
-.name {
-    /* Add styles for the name */
-}
-
-.post-img {
-    /* Add styles for the post image */
-}
-
-form {
-    display: flex;
+    width: 60%; /* Установить ширину элемента */
     align-items: center;
 }
 
-textarea {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-    margin-right: 10px;
-    font-size: 18px;
-    color: #fff;
+.HistoryDiv {
+    background: var(--COLOR-1, #2D2F30);
+    height: 110px;
+    width: 600px;
+    margin-top: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.MainDivHistoryComp2 {
+    width: 80px; /* Уменьшили ширину */
+    height: 120px; /* Уменьшили высоту */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 15px; /* Уменьшили отступы */
+    padding-top: 10px;
+}
+
+.Avatar2 {
+    width: 55px; /* Уменьшили размер аватара */
+    height: 55px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('https://sun9-9.userapi.com/impf/c849220/v849220853/1db24b/ccNFZ5gBIc8.jpg?size=568x593&quality=96&sign=3c5b20cf8c84b7b067205c8b64f5dbbe&type=album');
+    margin-bottom: 10px;
+}
+
+.UserName2 {
     width: 100%;
-    word-wrap: break-word;
-    resize: none;
-    overflow: hidden;
+    font-size: 12px; /* Уменьшили размер шрифта */
+    font-weight: 500;
+    color: rgb(161, 161, 161);
+    text-align: center;
 }
 
-#button-images {
-    margin-right: 5px;
-    font-size: 20px;
-    border: none; 
-    background: none;
-    cursor: pointer; 
-    text-decoration: none; 
-    color: inherit;
-    padding: 0;
+
+.IconsOne {
+    width: 17px;
+    height: 17px;
+    margin-left: 40px;
+    margin-top: 38px;
+    color: rgb(136, 136, 136);
 }
 
-.fa-regular.fa-image {
-    /* Add styles for the image icon */
+
+.RightFilterDivNews {
+    width: 200px;
+    height: 130px;
+    background: var(--COLOR-1, #2D2F30);
+    margin-left: 15px;
+    border-radius: 10px;
+    padding: 5px;
 }
 
-#button-output {
-    background: var(--COLOR-3, #3B5355);
+.PunktForBut {
+
+}
+
+
+.ButPostNews {
+    width: 180px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: 500;
     color: white;
+    background: var(--COLOR-2, #3C4245);
+    border-radius: 10px;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
     cursor: pointer;
-    font-size: 18px;
+    text-align: left;
+    padding-left: 20px;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.ButPhotoNews {
+    width: 180px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+    background: var(--COLOR-2, #3C4245);
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    padding-left: 20px;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.ButSearchNews {
+    width: 180px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+    background: var(--COLOR-2, #3C4245);
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    padding-left: 20px;
+    margin-top: 10px;
+    margin-left: 5px;
 }
