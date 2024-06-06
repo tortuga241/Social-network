@@ -1,0 +1,48 @@
+.AllTrackCenter {
+  width: 1100px;
+  display: flex;
+  justify-content: space-between;
+}
+.ImgTrack {
+  width: 70px;
+  height: 70px;
+}
+.ImgAndNameTrack {
+  display: flex;
+  gap: 20px;
+}
+.AllTrackMain {
+  margin: 0px 0px 20px 0px;
+}
+.NameAllTrackSub {
+  color: white;
+  font-family: sans-serif;
+  font-size: 20px;
+}
+.favoritAndMoreAndСounter {
+  display: flex;
+  width: 150px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0px 0px 0px;
+}
+.AllTrackMain {
+  margin: 0px 0px 20px 0px;
+  display: flex;
+  justify-content: center;
+}
+.NameTrack {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  color: #b5b1b1;
+}
+.Count {
+  color: #FFFFFF;
+}
+.Mores {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}

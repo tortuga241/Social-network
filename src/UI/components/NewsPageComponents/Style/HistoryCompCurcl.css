@@ -1,0 +1,29 @@
+.MainDivHistoryComp {
+    width: 80px; /* Уменьшили ширину */
+    height: 120px; /* Уменьшили высоту */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 15px; /* Уменьшили отступы */
+    padding-top: 10px;
+}
+
+.Avatar {
+    width: 55px; /* Уменьшили размер аватара */
+    height: 55px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 5px;
+    border: 2px solid #90F6FF; /* Уменьшили толщину обводки */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.UserName {
+    width: 100%;
+    font-size: 12px; /* Уменьшили размер шрифта */
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
