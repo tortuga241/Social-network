@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const PostsTab = require('../database/posts')
+const FullDateInfo = require('../modules/dateInfo')
 
 const router = express.Router()
 router.use(bodyParser.json())
@@ -71,20 +72,10 @@ router.get('/findAuthor', async(req,res)=>{
 
 router.post('/add', async(req,res)=>{
     const data = req.body
-    
-    const currentDate = new Date();
-  
-    const day = ('0' + currentDate.getDate()).slice(-2);
-    const month = ('0' + (currentDate.getMonth() + 1)).slice(-2)
-    const year = currentDate.getFullYear().toString().slice(-2)
-    const hours = ('0' + currentDate.getHours()).slice(-2)
-    const minutes = ('0' + currentDate.getMinutes()).slice(-2)
-    
-    const fullDateInfo = `${day}.${month}.${year} (${hours}:${minutes})`;
 
     const newPost = await PostsTab.create({
         author: data.author,
-        date: fullDateInfo,
+        date: FullDateInfo,
         content: data.content,
         repostPostId: data.repostPostId
     })
@@ -118,4 +109,41 @@ router.get('/reposts', async(req,res)=>{
     })
 })
 
+router.delete('/', async(req,res) => {
+    const deleteId = req.body.id
+    
+    if(!deleteId){
+        res.json({
+            status: 400,
+            error: 'Post delete: id field is null'
+        })
+        res.end()
+        return
+    }
+
+    const deletePost = await PostsTab.findOne({
+        where: {
+            id: deleteId
+        }
+    })
+
+    if(!deletePost || deletePost.length == 0){
+        res.json({
+            status: 400,
+            error: 'Post delete: post was undefined'
+        })
+        res.end()
+        return
+    }
+
+    await PostsTab.destroy({
+        where: {
+            id: deleteId
+        }
+    })
+    res.json({
+        status: 200,
+        error: null
+    })
+})
 module.exports = router
