@@ -8,6 +8,7 @@
 .MainDivRegistrPage {
     height: 100%;
 }
+
 /* 
 ==============================================================
 Выбор регистрация или вход
@@ -57,7 +58,7 @@ input[type="checkbox"] {
     display: none;
 }
 
-#test1{
+.test1{
     width: 13px; 
     height: 13px; 
     margin-right: 5px;
@@ -67,7 +68,7 @@ input[type="checkbox"] {
     cursor: pointer;
 }
 
-#test2{
+.test2{
     width: 13px; 
     height: 13px; 
     margin-right: 5px;
@@ -142,7 +143,11 @@ input{
 .PasswordInput {
     margin-left: 33px;
     margin-top: 5px;
-
+}
+input{
+    outline: none;
+    border: none;
+    box-sizing: border-box;
 }
 
 
@@ -156,10 +161,15 @@ input{
 
 .ForgottenPassword {
     margin-right: 50px;
-    color: #999999;
+    color: #b4b4b4;
     font-weight: 50;
     cursor: pointer;
     text-decoration: none;
+    transition: 0.2s;
+}
+
+.ForgottenPassword:hover{
+    color: #6d6d6d;
 }
 
 .SingInButBot {
@@ -174,6 +184,7 @@ input{
     border: none;
     background-color: #3C4245;
     color: white;
+    transition: 0.2s;
 }
 
 .SingInButBot:hover{
@@ -227,9 +238,37 @@ input{
     border: none;
     background-color: #3C4245;
     color: white;
+    transition: 0.2s;
 }
 
 .RegistrButBot:hover{
     background-color: #3B5355;
     color:#90F6FF;
+}
+
+.register-alert-container{
+    display: flex;
+    width: 500px;
+}
+.register-alert{
+    margin-top: 13px;
+    margin-left: 14px;
+    height: 25px;
+    width: 25px;
+    fill: #ff073a;
+    color: #ff073a;
+}
+
+.alert-modal{
+    width: 20%;
+    height: 7%;
+    background-color: #ff073a;
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    font-size: 20pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
 }
