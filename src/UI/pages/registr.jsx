@@ -65,6 +65,11 @@ const Registr = () => {
                     location.reload()
                 }else{
                     console.log('Ошибка входа: '+response.error)
+
+                    if(response.error == 'Login: Account undefined') setError('Логин или почта неверны')
+                    if(response.error == 'Login access denied: password incorrect') setError('Пароль неверный')
+
+                    setDisplayError('flex')
                 }
             })
             .catch(error => {
@@ -79,9 +84,21 @@ const Registr = () => {
 
     // Регистрация
     const handleRegister = () => {
-        if(!loginRegister || !emailRegister || !nameRegister || !surnameRegister || !passwordRegister || !passwordConfirmRegister) return
-        if(LoginChecker(loginRegister) == false) return
-        if(passwordRegister!=passwordConfirmRegister) return
+        if(!loginRegister || !emailRegister || !nameRegister || !surnameRegister || !passwordRegister || !passwordConfirmRegister) {
+            setError('Заполните все поля!')
+            setDisplayError('flex')
+            return
+        }
+        if(LoginChecker(loginRegister) == false) {
+            setError('Логин не соответствует требованиям!')
+            setDisplayError('flex')
+            return
+        }
+        if(passwordRegister!=passwordConfirmRegister) {
+            setError('Пароли не совпадают!')
+            setDisplayError('flex')
+            return
+        }
 
         const registerData = {
             login: loginRegister,
@@ -152,6 +169,22 @@ const Registr = () => {
         }
     };
 
+
+    // Логин алерт
+    // (e) => {setLoginRegister(e.target.value); LoginChecker(e.target.value) || e.target.value == 0 || e.target.value < 15 ? setAlertDisplay('none') : setAlertDisplay('flex')}
+
+    const handleAlert = (e) => {
+        const value = e.target.value
+
+        setLoginRegister(value)
+
+        if( value.length <= 15 && value.length > 0 && LoginChecker(value) ){
+            setAlertDisplay('none')
+        }else{
+            setAlertDisplay('flex')
+        }
+    }
+
     return (
         <div className="MainDivRegistrPage">
             {/* HEADER */}
@@ -198,6 +231,7 @@ const Registr = () => {
                         <Link to={'/forgotPassword'} className="ForgottenPassword">Забыли пароль?</Link>
                     </div>
                     <div className="SingInButBottom"><button className="SingInButBot" onClick={handleLoginIn}>Войти</button></div>
+                    <div className="alert-modal" style={{ display: displayError }}>{error}</div>
                 </div>
 
 
@@ -211,7 +245,7 @@ const Registr = () => {
                             <svg style={{display: alertDisplay}} className="register-alert" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480H40c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24V296c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></svg>
                             <span className="register-alert" style={{width: '300px', fontSize: '8pt', marginTop: '10px', display: alertDisplay, userSelect: 'none'}}>Логин должен быть слитным и содержать лишь символы a-z, а так же цифры и не быть более 15 символов</span>
                         </div>
-                        <input type="text" placeholder="Введите логин" onChange={(e) => {setLoginRegister(e.target.value); LoginChecker(e.target.value) || e.target.value == 0 ? setAlertDisplay('none') : setAlertDisplay('flex')}} style={{ width: '88%', borderRadius: '40px', height: '40px', color: 'white', background: 'var(--COLOR-2, #3C4245)', border: 'none', fontSize: '17px', paddingLeft: '15px'}}/>
+                        <input type="text" placeholder="Введите логин" onChange={ handleAlert } style={{ width: '88%', borderRadius: '40px', height: '40px', color: 'white', background: 'var(--COLOR-2, #3C4245)', border: 'none', fontSize: '17px', paddingLeft: '15px'}}/>
                         <p className="TextContentRegistrDiv">Почта</p>
                         <input type="text" placeholder="Введите почту" onChange={(e) => {setEmailRegister(e.target.value)}} style={{ width: '88%', borderRadius: '40px', height: '40px', color: 'white', background: 'var(--COLOR-2, #3C4245)', border: 'none', fontSize: '17px', paddingLeft: '15px'}}/>
                         <p className="TextContentRegistrDiv">Имя</p>

@@ -16,6 +16,7 @@ const GroupChatMessagesTab = require('./database/groupChatMessages')
 const GroupChatMembersTab = require('./database/groupChatMembers')
 const commentsLikesTab = require('./database/commentsLikes')
 const CommentsTab = require('./database/comments')
+const RecoveryTokenTab = require('./database/recoveryToken')
 
 // Routers
 const UalRouter = require('./routers/fileLoaders/userAvatarLoaderRouter')
