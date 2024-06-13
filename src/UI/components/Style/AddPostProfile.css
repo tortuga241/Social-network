@@ -1,10 +1,12 @@
 .AddPostMainDivProfile {
-    width: 825px;
+    width: 820px;
     height: 75px;
     background: var(--COLOR-1, #2D2F30);
     border-radius: 20px;
     margin-top: 20px;
     margin-left: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .AddPostProfile {
@@ -19,7 +21,7 @@
 }
 
 .UserAvatarAddPostProfile {
-    width: 45px;
+    width: 50px;
     height: 45px;
     border-radius: 50%;
     background-color: white;
@@ -40,4 +42,92 @@
     width: 100px;
     height: 20px;
     margin-top: 12px;
+}
+
+.InputPostPro {
+    width: 100%;
+    min-height: 20px;
+    color: white;
+    padding-left: 5px;
+    background: var(--Color-5, #181B1D);
+    border: none;
+    outline: none; /* Убираем цветное выделение при фокусе */
+}
+
+.InputPostPro::placeholder {
+    font-size: 16px; /* Увеличиваем размер шрифта placeholder */
+    color: #888; /* Можно задать цвет для placeholder */
+}
+
+/* --------------------------------------------------------------
+Стили при нажатии на блок
+-------------------------------------------------------------- */
+
+.AddPostMainDivProfileAct {
+    width: 820px;
+    min-height: 100px;
+    background: var(--COLOR-1, #2D2F30);
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-left: 30px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.AddPostProfileAct {
+    width: 94%;
+    min-height: 30px;
+    background: var(--Color-5, #181B1D);
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    border-radius: 20px;
+    align-items: center; /* Центрирование содержимого по вертикали */
+    padding: 10px; /* Добавление внутреннего отступа */
+}
+
+.UserAvatarAddPostProfileAct {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: white;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-right: 15px; /* Отступ между аватаром и полем ввода */
+}
+
+.AddPostInputProfileAct {
+    flex-grow: 1; /* Поле ввода будет занимать оставшееся пространство */
+    height: 20px;
+}
+
+.InputPostProf {
+    width: 100%;
+    min-height: 30px;
+    color: white;
+    font-size: 16px;
+    padding-left: 5px;
+    background: var(--Color-5, #181B1D);
+    border: none;
+    outline: none; 
+}
+.InputPostProf::placeholder {
+    font-size: 17px;
+    color: #888;
+}
+
+.PublishButton {
+    background: var(--COLOR-3, #3B5355);
+    color: #90F6FF;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 75%;
+    margin-top: 20px;
 }
