@@ -3,6 +3,7 @@ import Layouts from '../../Layouts/layout.jsx';
 import MainMenuList from '../components/MainMenuList.jsx';
 import AddPost from '../components/AddPost.jsx';
 import HistoryCompCurcl from '../components/NewsPageComponents/HistoryCompCurcl.jsx';
+import PostTextOnly from '../components/PostComps/PostTextOnly.jsx';
 import './Style/NewsPage.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
@@ -54,6 +55,10 @@ const NewsPage = () => {
                         <HistoryCompCurcl />
                         <HistoryCompCurcl />
                         <HistoryCompCurcl />
+                    </div>
+                    <div className='PostsNewsPage'>
+                        <PostTextOnly />
+                        <PostTextOnly />
                     </div>
                 </div>
                 <div className='RightFilterDivNews'>

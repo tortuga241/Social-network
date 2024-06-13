@@ -4,15 +4,18 @@ import MainMenu from "../components/MainMenuList.jsx";
 import ProfileFreindsComp from "../components/UserProfileComponents/ProfileFreindsComp.jsx";
 import ProfileSubComp from "../components/UserProfileComponents/ProfileSubComp.jsx";
 import AddPostProfile from "../components/AddPostProfile.jsx";
+import PostTextOnly from "../components/PostComps/PostTextOnly.jsx";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import PostPhotoTxt from "../components/PostComps/PostPhotoTxt.jsx";
 import { faImage, faMusic, faPencil, faGear } from '@fortawesome/free-solid-svg-icons';
+import ModalWindow from "../components/UserProfileComponents/ModalWindow.jsx";
 import './Style/Profile.css';
-import { width } from "@fortawesome/free-solid-svg-icons/fa0";
 
 const UserProfile = () => {
     const [activeButton, setActiveButton] = useState("Фото");
     const [text, setText] = useState("");
     const [imagePreview, setImagePreview] = useState("");
+    const [isEditModalOpen, setIsEditModalOpen] = useState(false); // Состояние для открытия/закрытия модального окна
 
     const handleButtonClick = (buttonName) => {
         setActiveButton(buttonName);
@@ -33,6 +36,14 @@ const UserProfile = () => {
         // Handle the post submission logic
     };
 
+    const handleOpenEditModal = () => {
+        setIsEditModalOpen(true);
+    };
+
+    const handleCloseEditModal = () => {
+        setIsEditModalOpen(false);
+    };
+
     return (
         <div className="MainDivUserProfile">
             <Layout />
@@ -40,34 +51,33 @@ const UserProfile = () => {
                 <div className="DivForMain">
                     <MainMenu />
                 </div>
-                <div className="ProfileMore" style={{width: '850px'}}>
+                <div className="ProfileMore" style={{ width: '850px' }}>
                     <div className="MainDivProfileInfo">
                         <div className="backgroundImageDiv"></div>
                         <div className="UserInfoDiv">
                             <div className="SettingButDiv">
                                 <button className="SettingBut">Настройки <FontAwesomeIcon icon={faGear} className="IconProfBut" /></button>
                             </div>
-
                             <div className="UserProfileInfo">
                                 <div className="UserAvatar">
                                     <div className="UserState"></div>
                                 </div><br />
                                 <div className="UserNameProfile">Александр Александрович</div>
-                                <span style={{ color: 'white', fontSize: '13px',}}>...</span>
+                                <span style={{ color: 'white', fontSize: '13px', }}>...</span>
                                 <div className="UserCity">Талдыкорган</div>
                             </div>
                             <div className="EditUserProfile">
-                                <button className="EditBut">Редактировать профиль <FontAwesomeIcon icon={faPencil} className="IconProfBut"/></button>
+                                <button className="EditBut" onClick={handleOpenEditModal}>Редактировать профиль <FontAwesomeIcon icon={faPencil} className="IconProfBut" /></button>
                             </div>
                         </div>
                     </div>
                     <div className="MainDivContainer">
                         <div className="LeftSide">
                             <div className="FriendsInfo">
-                            <ProfileFreindsComp />
-                            <ProfileFreindsComp />
-                            <ProfileFreindsComp />
-                            <ProfileFreindsComp />
+                                <ProfileFreindsComp />
+                                <ProfileFreindsComp />
+                                <ProfileFreindsComp />
+                                <ProfileFreindsComp />
                             </div>
                             <div className="Buts">
                                 <button className="But1">Все друзья<div className="kolvoFriend">241</div></button>
@@ -80,7 +90,7 @@ const UserProfile = () => {
                                 <ProfileFreindsComp />
                                 <ProfileFreindsComp />
                                 <ProfileFreindsComp />
-                                </div>
+                            </div>
                             <div className="Buts">
                                 <button className="But1">Онлайн<div className="kolvoFriend">241</div></button>
                                 <button className="But2">Ещё</button>
@@ -154,8 +164,11 @@ const UserProfile = () => {
                         </div>
                     </div>
                     <AddPostProfile />
+                    <PostTextOnly />
+                    <PostPhotoTxt />
                 </div>
             </div>
+            <ModalWindow isOpen={isEditModalOpen} onClose={handleCloseEditModal} />
         </div>
     );
 }

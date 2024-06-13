@@ -22,6 +22,9 @@ const MainMenu = () => {
             case '/music':
                 setActiveMenuItem("Музыка");
                 break;
+            case '/friends':
+                setActiveMenuItem("Друзья");
+                break;
             default:
                 setActiveMenuItem("");
         }
@@ -34,10 +37,9 @@ const MainMenu = () => {
                     <Link to="/" className={`TextMenu ${activeMenuItem === "Профиль" ? "active" : ""}`} onClick={() => handleMenuItemClick("Профиль")}>Профиль</Link>
                     <Link to="/feed" className={`TextMenu ${activeMenuItem === "Новости" ? "active" : ""}`} onClick={() => handleMenuItemClick("Новости")}>Новости</Link>
                     <p className={`TextMenu ${activeMenuItem === "Мессенджер" ? "active" : ""}`} onClick={() => handleMenuItemClick("Мессенджер")}>Мессенджер</p>
-                    <p className={`TextMenu ${activeMenuItem === "Друзья" ? "active" : ""}`} onClick={() => handleMenuItemClick("Друзья")}>Друзья</p>
+                    <Link to="/friends" className={`TextMenu ${activeMenuItem === "Друзья" ? "active" : ""}`} onClick={() => handleMenuItemClick("Друзья")}>Друзья</Link>
                     <p className={`TextMenu ${activeMenuItem === "Сообщества" ? "active" : ""}`} onClick={() => handleMenuItemClick("Сообщества")}>Сообщества</p>
                     <p className={`TextMenu ${activeMenuItem === "Фотографии" ? "active" : ""}`} onClick={() => handleMenuItemClick("Фотографии")}>Фотографии</p>
-                    {/* <p className={`TextMenu ${activeMenuItem === "Музыка" ? "active" : ""}`} onClick={() => handleMenuItemClick("Музыка")}>Музыка</p> */}
                     <Link to='/music' className={`TextMenu ${activeMenuItem === "Музыка" ? "active" : ""}`} onClick={() => handleMenuItemClick("Музыка")}>Музыка</Link>
                     <p className={`TextMenu ${activeMenuItem === "Видео" ? "active" : ""}`} onClick={() => handleMenuItemClick("Видео")}>Видео</p>
                     <p className={`TextMenu ${activeMenuItem === "Стикеры" ? "active" : ""}`} onClick={() => handleMenuItemClick("Стикеры")}>Стикеры</p>

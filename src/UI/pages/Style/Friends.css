@@ -1,3 +1,28 @@
+.MainDivNewsPage {
+    display: flex;
+    flex-direction: column;
+}
+
+.MainContentPage{
+    display: flex;
+    margin: auto;
+    width: 1050px;
+}
+
+.DivForMain {
+    display: flex;
+    flex-direction: column;
+    width: 320px; /* Задать фиксированную ширину для родительского элемента */
+    height: 450px;
+}
+
+.NewsPageMore {
+    display: flex;
+    flex-direction: column;
+    width: 60%; /* Установить ширину элемента */
+    align-items: center;
+}
+
 .AddPostMainDiv {
     width: 100%;
 }
@@ -26,10 +51,6 @@
     height: 45px;
     border-radius: 50%;
     background-color: white;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 .InputWithAvatarField {
