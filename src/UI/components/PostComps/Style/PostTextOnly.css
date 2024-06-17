@@ -1,0 +1,237 @@
+/* ---------------------------------------------------- */
+/* Сам TXT пост */
+/* ---------------------------------------------------- */
+
+.MainDivPostTextOnly {
+    width: 600px;
+    min-height: 300px;
+    background: var(--COLOR-1, #2D2F30);
+    border-radius: 10px;
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.PostTxtInfo {
+    width: 95%;
+    height: 70px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    padding-top: 20px;
+}
+
+.UserAvatarPost {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: solid 1px white;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.PostInfo {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    max-width: 215px;
+}
+
+.PostUserName {
+    color: #90F6FF;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.PostDate {
+    font-size: 14px;
+    color: rgb(136, 136, 136);
+}
+
+.PostMore {
+    font-size: 25pt;
+    font-weight: 600;
+    color: rgb(133, 133, 133);
+    margin-left: 260px;
+}
+
+.PostTextContent {
+    width: 95%;
+    min-height: 30px;
+    color: white;
+    margin-left: 30px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.PostMoreFunc {
+  width: 95%;
+  height: 35px;
+}
+
+.PostIconsBut {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+.ButPost {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    background: var(--COLOR-2, #453c3c);
+    cursor: pointer;
+}
+
+.PostMenu{
+    font-size: 10pt;
+    height: 28px;
+    width: 140px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #313333;
+    color: white;
+    overflow: hidden;
+}
+.PostMenu:hover{
+    background-color: #1e2020;
+}
+.PostMenu2{
+    font-size: 10pt;
+    height: 28px;
+    width: 140px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #8f3434;
+    color: white;
+    overflow: hidden;
+}
+.PostMenu2:hover{
+    background-color: #682222;
+}
+
+.ActiveLike {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    background: var(--COLOR-2, #af1d35);
+    cursor: pointer;
+}
+
+.ActiveRepost {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    background: var(--COLOR-2, #1d68af);
+    cursor: pointer;
+}
+
+.kolvoPost {
+    color: rgb(167, 167, 167);
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.PostIconButIcon {
+    color: rgb(167, 167, 167);
+    font-size: 14px;
+}
+
+.PostWatchKolvo {
+    margin-left: 220px;
+    display: flex;
+    flex-direction: row;
+}
+
+.PostIconEye {
+    color: rgb(167, 167, 167);
+    font-size: 18px;
+}
+
+.shrOt {
+    width: 93%;
+    height: 1px;
+    border: none;
+    background-color: rgb(167, 167, 167);
+    margin: 10px auto;
+}
+
+.FilterCommentsIc {
+    color: rgb(167, 167, 167);
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.CommFilter {
+    color: #90F6FF;
+    font-size: 14px;
+    margin-left: 20px;
+}
+
+/* ---------------------------------------------------- */
+/* Коментарий к посту */
+/* ---------------------------------------------------- */
+/* .PostComments {
+    width: 92%;
+    min-height: 100px;
+    background: var(--COLOR-1, #2D2F30);
+    margin-left: 20px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.PostComments {
+    display: flex;
+    flex-direction: column;
+}
+
+.UserNameComments {
+    margin-left: 5px;
+}
+
+.UserAvatarComment {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+.CommentsInfo {
+    display: flex;
+    flex-direction: row;
+}
+
+.UserNameCom {
+    font-size: 15px;
+    font-weight: 600;
+    color: #90F6FF;
+}
+
+.CommentsDate {
+    font-size: 13px;
+    color: rgb(167, 167, 167);
+    font-weight: 600;
+} */

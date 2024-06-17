@@ -1,0 +1,434 @@
+.MainDivUserProfile {
+    display: flex;
+    flex-direction: column;
+}
+
+.MainContentPage{
+    display: flex;
+    margin: auto;
+}
+
+.DivForMain {
+    display: flex;
+    flex-direction: column;
+    width: 320px; /* Задать фиксированную ширину для родительского элемента */
+    height: 450px;
+}
+
+.ProfileMore {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Установить ширину элемента */
+}
+
+
+
+/* Иконки в профеле */
+.IconProfBut {
+    width: 15px;
+    height: 15px;
+    color: white;
+    margin-left: 3px;
+}
+
+
+
+
+
+
+
+/* Часть с профелем  */
+
+.MainDivProfileInfo {
+    width: 820px;
+    background: var(--COLOR-1, #2D2F30);
+    height: 370px;
+    margin-left: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.backgroundImageDiv {
+    width: 100%;
+    height: 300px;
+    -webkit-mask: linear-gradient(#000 20%, #0002 95%, #0000);
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
+}
+
+.UserInfoDiv {
+    width: 100%;
+    height: 150px;
+    background: var(--COLOR-1, #2D2F30);
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    justify-content: space-around;
+    padding-top: 50px;
+}
+
+.SettingBut {
+    width: 150px;
+    height: 30px;
+    background: var(--COLOR-2, #3C4245);
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    margin-left: 40px;
+}
+
+.EditBut {
+    width: 220px;
+    height: 30px;
+    background: var(--COLOR-2, #3C4245);
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+}
+
+.UserProfileInfo {
+    width: 200px;
+    text-align: center;
+    margin-top: -50px;
+    /* margin-left: 50px; */
+}
+
+.UserAvatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background-color: white;
+    margin-top: -100px;
+    margin-left: 45px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.UserNameProfile {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center; /* Центрируем текст */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Добавляем тень */
+}
+
+.UserCity {
+    color: rgb(179, 179, 179);
+    font-size: 15px;
+    font-weight: 300;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+/* ============================================================================================
+--------------------------------------------------------------------------------------------
+В скором времени
+============================================================================================
+-------------------------------------------------------------------------------------------- */
+
+/* width: 160px;
+height: 160px;
+background-color: #ccc;
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+border-radius: 50%;
+margin-right: 700px;
+margin-top: -80px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); */
+
+
+
+
+/* ============================================================================================
+--------------------------------------------------------------------------------------------
+В скором времени
+============================================================================================
+-------------------------------------------------------------------------------------------- */
+
+
+/* .profile-main .user-statys-1{
+    width: 15px;
+    height: 15px;
+    background-color: rgb(13, 147, 209);
+    border: solid 3px black;
+    border-radius: 50%;
+    position: absolute;
+    left: 0px;
+    bottom: 75px;
+    left: 227px;
+    z-index: 6;
+}
+.profile-main .user-statys-2{
+    width: 15px;
+    height: 15px;
+    background-color: rgb(255, 174, 0);
+    border: solid 3px black;
+    border-radius: 50%;
+    position: absolute;
+    left: 0px;
+    bottom: 75px;
+    left: 227px;
+    display: none;
+    z-index: 6;
+}
+.profile-main .user-statys-3{
+    width: 15px;
+    height: 15px;
+    border: solid 3px black;
+    background-color: gray;
+    border-radius: 50%;
+    position: absolute;
+    left: 0px;
+    bottom: 75px;
+    left: 227px;
+    display: none;
+    z-index: 6;
+} */
+
+
+/* Часть с друзьями */
+.MainDivContainer {
+    width: 820px;
+    height: 150px;
+    color: white;
+    border-radius: 10px;
+    padding-top: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 30px;
+}
+
+.LeftSide {
+    display: flex;
+    flex-direction: column;
+    width: 410px;
+    height: 150px;
+    background: var(--COLOR-1, #2D2F30);
+    color: white;
+    border-radius: 10px;
+}
+
+.RightSide {
+    display: flex;
+    flex-direction: column;
+    width: 820px;
+    height: 150px;
+    background: var(--COLOR-1, #2D2F30);
+    color: white;
+    margin-left: 2%;
+    border-radius: 10px;
+}
+
+.FriendsInfo {
+    height: 80px;
+    /* margin: auto; */
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.kolvoFriend {
+    margin-left: 5px;
+}
+
+.Buts {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.But1 {
+    min-width: 150px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    background: var(--COLOR-2, #3C4245);
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 8px;
+}
+
+.But2 {
+    width: 80px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    background: var(--COLOR-2, #3C4245);
+    color: white;
+    border-radius: 10px;
+}
+
+.But3{
+    width: 100px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    background: var(--COLOR-2, #3C4245);
+    color: white;
+    border-radius: 10px;
+}
+
+
+
+
+/* Часть с фотографиями в профеле */
+.MainDivProfilePhotoContent {
+    width: 820px;
+    height: 500px;
+    background: var(--COLOR-1, #2D2F30);
+    color: white;
+    border-radius: 10px;
+    margin-left: 30px;
+    padding-top: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.DivPhoto {
+    width: 96%;
+    height: 395px;
+    margin: auto;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.mainPhoto {
+    width: 40%;
+    height: 375px;
+    background-color: gray;
+    border-radius: 10px;
+}
+
+.miniPhoto {
+    width: 58%;
+    height: 350px;
+    display: grid;
+    grid-template-columns: repeat(3, 33.5%);
+    grid-template-rows: repeat(2, 53%);
+    gap: 1%;
+    margin-left: 1%;
+}
+
+.photos {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    border-radius: 10px;
+}
+
+.FilterPhoto {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.photoBut1, .photoBut2 {
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: var(--COLOR-2, #3C4245);
+    color: white;
+    margin-left: 20px;
+}
+
+.photoBut2 {
+    width: 200px;
+    margin-left: 85px;
+}
+
+.photoBut1.active, .photoBut2.active {
+    background: var(--COLOR-3, #3B5355);
+}
+
+
+/* Часть с подписками */
+.MainDivSubscrideProfile {
+    width: 820px;
+    height: 240px;
+    background: var(--COLOR-1, #2D2F30);
+    color: white;
+    border-radius: 10px;
+    /* margin-left: 30%; */
+    padding-top: 20px;    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+.LeftSide {
+    width: 100%;
+}
+
+.Butos {
+    margin-left: 2.5%;
+}
+
+.ButSub {
+    min-width: 150px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    background: var(--COLOR-2, #3C4245);
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 8px;
+}
+
+.SubButKolvo {
+    margin-left: 5px;
+    color: #b1b1b1;
+}
+
+.SubList {
+    width: 95%;
+    margin: auto;
+    padding-top: 20px;
+}
+
+.profileDescription {
+    width: 280px;
+    max-height: 100px;
+    overflow: hidden;
+    word-break: break-all;
+    overflow-x: hidden;
+    font-size: 13px;
+    color: white;
+    margin-top: 10px;
+    position: relative;
+    right: 35px;
+    padding-bottom: 10px;
+}
