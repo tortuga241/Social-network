@@ -1,12 +1,16 @@
 const express = require('express')
+const { Op } = require('sequelize')
 const bodyParser = require('body-parser')
 const nodemailer = require('nodemailer')
 const crypto = require('crypto')
+const cors = require('cors')
+const bcrypt = require('bcrypt')
 
 const UsersTab = require('../database/users')
 
 const router = express.Router()
 router.use(bodyParser.json())
+router.use(cors())
 
 function confirmCodeGen(length) {return crypto.randomBytes(length).toString('hex').substr(0, length);}
 
@@ -20,11 +24,13 @@ let checkedAccount = {
     avatarPath: null,
     backgroundPath: null,
     description: null,
-    location: null
+    location: null,
+    private: null,
 }
 let confirmCode = ''
 
 const transporter = require('../mailConfig')
+const SettingsTab = require('../database/settings')
 
 // MIDDLEWARES
 
@@ -106,7 +112,7 @@ const mwRegConfig = (req,res, next) => {
 // ROUTERS
 
 
-router.get('/login', async(req,res)=>{
+router.post('/login', async(req,res)=>{
     const data = req.body
 
     console.log(`Логин: ${data.login}`)
@@ -114,7 +120,10 @@ router.get('/login', async(req,res)=>{
 
     const findedAccount = await UsersTab.findOne({
         where: {
-            login: data.login
+            [Op.or]: [
+                { login: data.login },
+                { email: data.login }
+            ]
         }
     })
 
@@ -122,28 +131,37 @@ router.get('/login', async(req,res)=>{
         res.json({
             status: 404,
             error: 'Login: Account undefined'
-        })   
-        res.end()
+        })
         return
     }
 
-    if(findedAccount.password == data.password){
-        res.json({
-            status: 200,
-            accountData: findedAccount
-        })   
-    }else{
-        res.json({
-            status: 400,
-            error: 'Login access denied: password incorrect'
-        })
-    }
-    res.end()
+    await bcrypt.compare(data.password, findedAccount.password, (err, result) => {
+        if(err){
+            console.error('Login password compare error:', err)
+            res.json({
+                status: 400,
+                error: `Login password compare error: ${err}`
+            })
+            return
+        }
+        if( result ){ 
+            res.json({
+              status: 200, 
+              accountData: findedAccount
+            })
+        }else{
+            res.json({
+                status: 400, 
+                error: 'Login access denied: password incorrect' 
+            })
+        }
+    })
 })
 
 
 router.post('/register', mwRegConfig, mwSimilarEmail, mwSimilarLogin, async(req,res)=>{
     const data = req.body
+    const hashedPassword = await bcrypt.hash(data.password, 10)
 
     console.log(`Логин: ${data.login}`)
     console.log(`Пароль: ${data.password}`)
@@ -158,7 +176,8 @@ router.post('/register', mwRegConfig, mwSimilarEmail, mwSimilarLogin, async(req,
 
     checkedAccount = {
         login: data.login,
-        password: data.password,
+        nickname: data.login,
+        password: hashedPassword,
         phoneNumber: null,
         name: data.name,
         surname: data.surname,
@@ -167,7 +186,9 @@ router.post('/register', mwRegConfig, mwSimilarEmail, mwSimilarLogin, async(req,
         backgroundPath: null,
         description: '',
         location: 'Не указан',
-        role: 'user'
+        role: 'user',
+        private: true,
+        status: 'offline'
     }
 
     console.log('AAAAA:' + JSON.stringify(checkedAccount.email))
@@ -178,7 +199,7 @@ router.get('/confirmCode', (req,res) => {
 
     confirmCode = confirmCodeGen(6)
 
-    console.log(`confirmCode: `+email)
+    console.log(`confirmCode: `+ email)
     console.log(confirmCode)
 
     if(!email){
@@ -222,6 +243,23 @@ router.post('/checkCode', async(req,res) => {
 
     if(enteredCode == confirmCode){
         await UsersTab.create(checkedAccount)
+        await SettingsTab.create({
+            user: checkedAccount.login,
+            doubleAuthentificator: false,
+            notificationNewPost: true,
+            notificationNewGroupChatMessage: true,
+            notificationNewFriendRequest: true,
+            notificationSystemUpdates: false,
+            privateProfile: false,
+            showStatus: 'offline',
+            showFriends: "All",
+            showEmail: "friends",
+            showPhone: "friends",
+            showPosts: "All",
+            showLikes: "No one",
+            showMusic: "No one",
+            showLocation: "No one"
+        })
         res.json({
             status: 200,
             error: null

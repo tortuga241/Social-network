@@ -16,6 +16,9 @@ const UsersTab = sequelize.define('myUsers', {
     login: {
         type: DataTypes.STRING
     },
+    nickname: {
+        type: DataTypes.STRING
+    },
     email: {
         type: DataTypes.STRING
     },
@@ -40,6 +43,9 @@ const UsersTab = sequelize.define('myUsers', {
     role: {
         type: DataTypes.STRING
     },
+    status: {
+        type: DataTypes.STRING
+    }
 });
 
 module.exports = UsersTab;
