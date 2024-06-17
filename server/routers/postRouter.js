@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const PostsTab = require('../database/posts')
+const FullDateInfo = require('../modules/dateInfo')
 
 const router = express.Router()
 router.use(bodyParser.json())
@@ -23,8 +24,8 @@ router.get('/', async(req,res)=>{
     res.end()
 })
 
-router.get('/findId', async(req,res)=>{
-    const id = req.body.id
+router.get('/findId/:id', async(req,res)=>{
+    const id = req.params.id
 
     const post = await PostsTab.findOne({
         where: {
@@ -42,18 +43,23 @@ router.get('/findId', async(req,res)=>{
     }
 
     res.json({
+        status: 200,
         post   
     })
 })
 
-router.get('/findAuthor', async(req,res)=>{
-    const authorName = req.body.author
+router.get('/findAuthor/:author', async(req,res)=>{
+    const authorName = req.params.author
+
+    console.log(authorName)
 
     const posts = await PostsTab.findAll({
         where: {
             author: authorName
         }
     })
+
+    console.log(posts)
 
     if(!posts){
         res.json({
@@ -65,26 +71,18 @@ router.get('/findAuthor', async(req,res)=>{
     }
 
     res.json({
-        posts
+        status: 200,
+        posts,
+        error: null
     })
 })
 
 router.post('/add', async(req,res)=>{
     const data = req.body
-    
-    const currentDate = new Date();
-  
-    const day = ('0' + currentDate.getDate()).slice(-2);
-    const month = ('0' + (currentDate.getMonth() + 1)).slice(-2)
-    const year = currentDate.getFullYear().toString().slice(-2)
-    const hours = ('0' + currentDate.getHours()).slice(-2)
-    const minutes = ('0' + currentDate.getMinutes()).slice(-2)
-    
-    const fullDateInfo = `${day}.${month}.${year} (${hours}:${minutes})`;
 
     const newPost = await PostsTab.create({
         author: data.author,
-        date: fullDateInfo,
+        date: FullDateInfo,
         content: data.content,
         repostPostId: data.repostPostId
     })
@@ -95,8 +93,8 @@ router.post('/add', async(req,res)=>{
     })
 })
 
-router.get('/reposts', async(req,res)=>{
-    const id = req.body.id
+router.get('/reposts/:id', async(req,res)=>{
+    const id = req.params.id
 
     const reposts = await PostsTab.findAll({
         where: {
@@ -114,8 +112,46 @@ router.get('/reposts', async(req,res)=>{
     }
 
     res.json({
+        status: 200,
         reposts
     })
 })
 
+router.delete('/:id', async(req,res) => {
+    const deleteId = req.params.id
+    
+    if(!deleteId){
+        res.json({
+            status: 400,
+            error: 'Post delete: id field is null'
+        })
+        res.end()
+        return
+    }
+
+    const deletePost = await PostsTab.findOne({
+        where: {
+            id: deleteId
+        }
+    })
+
+    if(!deletePost || deletePost.length == 0){
+        res.json({
+            status: 400,
+            error: 'Post delete: post was undefined'
+        })
+        res.end()
+        return
+    }
+
+    await PostsTab.destroy({
+        where: {
+            id: deleteId
+        }
+    })
+    res.json({
+        status: 200,
+        error: null
+    })
+})
 module.exports = router
