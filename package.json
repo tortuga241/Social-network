@@ -11,6 +11,10 @@
     "start": "nodemon server/app.js"
   },
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.1.2",
@@ -20,13 +24,12 @@
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.2.1",
+    "body-parser": "^1.20.2",
+    "crypto": "^1.0.1",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
-    "vite": "^5.2.0",
-    "body-parser": "^1.20.2",
-    "crypto": "^1.0.1",
     "express": "^4.19.2",
     "fs": "^0.0.1-security",
     "multer": "^1.4.5-lts.1",
@@ -36,6 +39,7 @@
     "nodemon": "^3.1.0",
     "path": "^0.12.7",
     "sequelize": "^6.37.3",
-    "url": "^0.11.3"
+    "url": "^0.11.3",
+    "vite": "^5.2.0"
   }
 }
