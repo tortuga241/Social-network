@@ -1,0 +1,70 @@
+.MainDivNewsPages {
+    display: flex;
+    flex-direction: column;
+}
+
+.MainContentPage{
+    display: flex;
+    margin: auto;
+}
+
+.DivForMain {
+    display: flex;
+    flex-direction: column;
+    width: 210px; /* Задать фиксированную ширину для родительского элемента */
+    height: 450px;
+}
+
+.NewsPageMore {
+    display: flex;
+    flex-direction: column;
+    width: 60%; /* Установить ширину элемента */
+    align-items: center;
+}
+
+.AddPostMainDiv {
+    width: 100%;
+}
+
+
+.AddPostMainDiv {
+    width: 600px;
+    height: 75px;
+    background: var(--COLOR-1, #2D2F30);
+    border-radius: 20px;
+}
+
+.AddPost {
+    width: 94%;
+    height: 45px;
+    margin-top: 15px;
+    margin-left: 3%;
+    border-radius: 60px;
+    background: var(--Color-5, #181B1D);
+    display: flex;
+    flex-direction: row;
+}
+
+.UserAvatarAddPost {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.InputWithAvatarField {
+    width: 400px;
+    height: 50px;
+    color: rgb(148, 148, 148);
+    font-size: 15px;
+    font-weight: 700;
+    padding-top: 12px;
+    margin-left: 15px;
+    cursor: default;
+}
+
+.AddPostIcons {
+    width: 100px;
+    height: 20px;
+    margin-top: 12px;
+}

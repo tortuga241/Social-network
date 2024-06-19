@@ -1,0 +1,145 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(2, 2, 2, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Центрирование по вертикали */
+    z-index: 1000;
+}
+
+.modal-content {
+    padding: 20px;
+    border-radius: 5px;
+    width: 650px;
+    max-width: 90%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    color: white;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 22pt;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: var(--Color-5, #181B1D);
+    color: rgb(167, 167, 167);
+    align-content: center;
+    border: none;
+}
+
+.header-block {
+    width: 690px;
+    height: 80px;
+    border-radius: 10px;
+    margin-top: 20px;
+    background: var(--COLOR-1, #2D2F30);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Для позиционирования кнопки закрытия */
+}
+
+.header-block h2 {
+    margin: 0; /* Убираем отступы */
+    color: white; /* Цвет текста */
+}
+
+.Background-block,
+.DopInfo-block,
+.Confirm-block {
+    width: 650px;
+    background: var(--COLOR-1, #2D2F30);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.UserAvatar-block {
+    width: 650px;
+    background: var(--COLOR-1, #2D2F30);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+}
+
+.UserAvatar-block .UserAvatar-smena {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.Background-img {
+    width: 400px;
+    height: 200px;
+    background-color: black;
+    border-radius: 10px;
+}
+
+.TextMore-block {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.confirmBut {
+    width: 300px;
+    height: 40px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 16px;
+    border: none;
+    background: var(--COLOR-3, #3B5355);
+    color: #90F6FF;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.EditButModal {
+    width: 220px;
+    height: 30px;
+    padding: 5px 20px;
+    border: none;
+    background: var(--COLOR-2, #3C4245);
+    color: #90F6FF;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.Confirm-block{
+    height: 60px;
+}
+
+.ObertckaInf {
+    
+}
+
+.WorkStydiPlace,
+.InfoCity {
+    margin: 5px 0;
+}

@@ -1,0 +1,105 @@
+.addContent {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 51%;
+    margin-left: 30%;
+}
+
+.form {
+    flex: 1;
+    margin-right: 20px;
+    margin-top: 40px;
+}
+
+#myTextField {
+    width: 100%;
+    height: auto;
+    resize: vertical;
+}
+
+.form .fa-regular.fa-image {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.add-post {
+    background: var(--COLOR-1, #2D2F30);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.addContent .form .add-post input {
+    background-color: rgb(199, 199, 199);
+    margin-top: 5px;
+    color: black;
+}
+
+button#addButton {
+    background-color: #4CAF50;
+    color: #fff; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    padding: 10px 20px; 
+    font-size: 16px;
+    width: 240px;
+}
+
+.avatar {
+    /* Add styles for the avatar */
+}
+
+.name {
+    /* Add styles for the name */
+}
+
+.post-img {
+    /* Add styles for the post image */
+}
+
+form {
+    display: flex;
+    align-items: center;
+}
+
+textarea {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 18px;
+    color: #fff;
+    width: 100%;
+    word-wrap: break-word;
+    resize: none;
+    overflow: hidden;
+}
+
+#button-images {
+    margin-right: 5px;
+    font-size: 20px;
+    border: none; 
+    background: none;
+    cursor: pointer; 
+    text-decoration: none; 
+    color: inherit;
+    padding: 0;
+}
+
+.fa-regular.fa-image {
+    /* Add styles for the image icon */
+}
+
+#button-output {
+    background: var(--COLOR-3, #3B5355);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}

@@ -1,0 +1,359 @@
+/* =============================== */
+/* кнопка player
+======================== */
+button.Stylenone {
+  border: none;
+  background: none;
+}
+svg {
+  cursor: pointer;
+}
+/* ======================== */
+/* ==========test=============== */
+.testactive{
+  box-shadow: 1px 2px 2px rgb(196, 95, 95);
+}
+/* ==================== */
+.MainMusic {
+  width: 1150px;
+}
+.Centertrack {
+  display: flex;
+  flex-direction: column;
+}
+.CenterMusic {
+    height: 80px;
+    background: #2D2F30;
+    padding: 20px;
+    border-radius: 20px;
+}
+.mainM {
+  display: flex;
+  gap: 20px;
+}
+.playerCenter {
+  display: flex;
+  align-items: center;
+}
+
+.PlayerMusic {
+  display: flex;
+  height: 80px;
+}
+.AudioPlayer {
+  width: 30%;
+  display: flex;
+}
+.playerCenter {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-evenly;
+}
+.AudioPlayerBlockTwo {
+  width: 50%;
+}
+.AudioPlayerBlockThree {
+  display: flex;
+  align-items: center;
+  width: 20%;
+}
+.MainProgressbar {
+  display: flex;
+  align-items: center;
+  gap: 3%;
+  justify-content: center;
+}
+.ImgMusic {
+  width: 12.613%;
+  height: 70px;
+}
+.NameANDProgress {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4%;
+  height: 70px;
+  align-items: flex-end;
+}
+.seconds {
+  color: #f7f7f7;
+}
+.NameMusic {
+  color: white;
+  font-size: large;
+  font-weight: bold;
+}
+
+.Progressbar {
+  width: 98.14%;
+  background: #D9D9D9;
+  height: 4px;
+}
+.Progress {
+  width: 55px;
+  height: 4px;
+  background: #999595;
+}
+
+.volumeCenter {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+.SliderVolume {
+  width: 100px;
+}
+input#volume-slider {
+  width: 100px;
+}
+
+.MusicMix {
+  height: 250px;
+  margin-top: 20px;
+  background: #2D2F30;
+  border-radius: 20px;
+}
+.PlayMixblock {
+  height: 145px;
+}
+.PlayMixSVG {
+  width: 50px;
+  height: 50px;
+  background: white;
+  display: flex;
+  align-items: center;
+  border-radius: 30px;
+  justify-content: center;
+  cursor: pointer;
+}
+.PlayMixSVG:active {
+  background: #45f3e7;
+}
+
+.MusicMix1 {
+  height: 225px;
+}
+.MusicMixCenter {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 250px;
+}
+.Text {
+  width: 900px;
+}
+.TextMix {
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+  color: white;
+  font-weight: 600;
+}
+.SearchCenter {
+  width: 1000px;
+}
+input.searchText {
+  width: 97%;
+  height: 29px;
+  font-size: 17px;
+  border: none;
+  outline: none;
+  background: #181B1D;
+  color: #ffffff;
+  caret-color: #9df1b7;
+}
+.SearchBlock {
+  display: flex;
+  justify-content: center;
+  background: #181B1D;
+  height: 50px;
+  align-items: center;
+  border-radius: 25px;
+  gap: 15px;
+}
+.PlayMix {
+  display: flex;
+  justify-content: center;
+  height: 75px;
+  align-items: center;
+}
+
+.PlayListCenter {
+  background: #2D2F30;
+  border-radius: 20px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.PlayList {
+  margin: 20px 0px 20px 0px;
+}
+.ButtonsPlayList1 {
+  display: flex;
+  gap: 345px;
+}
+.ButtonPlayList2 {
+  display: flex;
+  width: 500px;
+  gap: 40px;
+  justify-content: center;
+}
+.Button1List {
+  cursor: pointer;
+}
+.Button2List {
+  cursor: pointer;
+}
+.ButtonsTrack1 {
+  border-radius: 51px;
+  width: 204px;
+  height: 40px;
+  background: rgba(59, 83, 85, 1);
+  border: none;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+}
+.ButtonsTrack2 {
+  border-radius: 51px;
+  width: 204px;
+  height: 40px;
+  background: rgb(83 89 92);
+  border:none;
+  font-size: 18px;
+  font-weight: 700;
+  color:aliceblue;
+  cursor: pointer;
+}
+.ButtonsTrack3 {
+  border-radius: 51px;
+  width: 278px;
+  height: 40px;
+  background: rgb(83 89 92);
+  border:none;
+  font-size: 18px;
+  font-weight: 700;
+  color:aliceblue;
+  cursor: pointer;
+}
+/* ======================= */
+.ButtonsTrack1:active {
+  background: #45f3e7;
+
+}
+.ButtonsTrack2:active {
+  background: #45f3e7;
+
+}
+.ButtonsTrack3:active {
+  background: #45f3e7;
+  
+}
+/* ======================== */
+button.ButtonsTrack1List {
+  border-radius: 51px;
+  width: 204px;
+  height: 40px;
+  background: rgba(59, 83, 85, 1);
+  border: none;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  transition: all 1s ease-out;
+}
+
+button.ButtonsTrack1List:active {
+  background: #45f3e7;
+  transition: all 0.1s ease-out;
+  color: black;
+}
+
+button.ButtonsTrack2List {
+  border-radius: 51px;
+  width: 204px;
+  height: 40px;
+  background: rgb(83 89 92);
+  border: none;
+  font-size: 18px;
+  font-weight: 700;
+  color: aliceblue;
+  cursor: pointer;
+}
+button.ButtonsTrack2List:active {
+  background: #45f3e7;
+  color: black;
+}
+button.ButtonsTrack3List {
+  border-radius: 51px;
+  width: 278px;
+  height: 40px;
+  background: rgb(83 89 92);
+  border: none;
+  font-size: 18px;
+  font-weight: 700;
+  color: aliceblue;
+  cursor: pointer;
+}
+button.ButtonsTrack3List:active {
+  background: #45f3e7;
+  color: black;
+}
+
+.AllTracks {
+  background: #2D2F30;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.NameAllTrack {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0px 0px 20px 0px;
+}
+.AllList {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.ButtonAllListMain {
+  display: flex;
+  justify-content: center;
+}
+.DownALLTrack {
+  display: flex;
+  justify-content: center;
+}
+button.DropDownAll {
+  width: 200px;
+  height: 30px;
+  background: #202020;
+  border: none;
+  color: white;
+  font-size: medium;
+  border-radius: 20px;
+  cursor: pointer;
+}
+button.DropDownAll:active {
+  background: #45f3e7;
+  color: rgb(0, 0, 0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
