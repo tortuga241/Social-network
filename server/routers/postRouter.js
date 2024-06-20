@@ -1,10 +1,11 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const PostsTab = require('../database/posts')
-const FullDateInfo = require('../modules/dateInfo')
+const GetFullDateInfo = require('../modules/dateInfo')
 
 const router = express.Router()
 router.use(bodyParser.json())
+
 
 router.get('/', async(req,res)=>{
     const posts = await PostsTab.findAll()
@@ -19,6 +20,7 @@ router.get('/', async(req,res)=>{
     }
 
     res.json({
+        status: 200,
         posts    
     })
     res.end()
@@ -51,7 +53,7 @@ router.get('/findId/:id', async(req,res)=>{
 router.get('/findAuthor/:author', async(req,res)=>{
     const authorName = req.params.author
 
-    console.log(authorName)
+    // console.log(authorName)
 
     const posts = await PostsTab.findAll({
         where: {
@@ -59,7 +61,7 @@ router.get('/findAuthor/:author', async(req,res)=>{
         }
     })
 
-    console.log(posts)
+    // console.log(posts)
 
     if(!posts){
         res.json({
@@ -82,7 +84,7 @@ router.post('/add', async(req,res)=>{
 
     const newPost = await PostsTab.create({
         author: data.author,
-        date: FullDateInfo,
+        date: GetFullDateInfo(),
         content: data.content,
         repostPostId: data.repostPostId
     })
