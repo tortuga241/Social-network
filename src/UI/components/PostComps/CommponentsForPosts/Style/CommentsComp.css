@@ -1,9 +1,8 @@
 .PostComments {
     width: 92%;
-    min-height: 100px;
+    min-height: 90px;
     background: var(--COLOR-1, #2D2F30);
     margin-left: 20px;
-    margin-bottom: 20px;
     color: white;
     margin-top: 15px;
 }

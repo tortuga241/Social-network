@@ -1,0 +1,16 @@
+.MainDivNewsPages {
+    display: flex;
+    flex-direction: column;
+}
+
+.MainContentPage{
+    display: flex;
+    margin: auto;
+}
+
+.DivForMain {
+    display: flex;
+    flex-direction: column;
+    width: 210px; /* Задать фиксированную ширину для родительского элемента */
+    height: 450px;
+}

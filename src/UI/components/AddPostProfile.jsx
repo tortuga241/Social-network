@@ -72,7 +72,7 @@ const AddPostProfile = ({ accOwner, login, avaPath }) => {
                 <div className='AddPostMainDivProfile' onClick={toggleView}>
                     <div className='AddPostProfile'>
                         <div className='UserAvatarAddPostProfile' style={{ backgroundImage: `url(${staticPath}/${avaPath})` }}></div>
-                        <div className='AddPostInputProfile' ыенд>
+                        <div className='AddPostInputProfile'>
                             <div className='InputWithAvatarFieldProfile'>
                                 <input type="text" placeholder="Что у вас нового?" className="InputPostPro" />
                             </div>

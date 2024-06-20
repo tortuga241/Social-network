@@ -1,7 +1,7 @@
 import React from "react";
 import './Style/CommentsForComm.css';
 
-const CommentsForComm = () => {
+const CommetnsForComm = () => {
     return (
         <div className="MainDivCommForComm">
             <hr className="shrOtTwo"/>
@@ -11,9 +11,8 @@ const CommentsForComm = () => {
                 <p className="TxtMore">ответил</p>
                 <p className="TxtMore">Ещё 23 ответа</p>
             </div>
-            <span className="NextMoreComm">Показать остальные коментарии</span>
         </div>
     )
 }
 
-export default CommentsForComm;
+export default CommetnsForComm;

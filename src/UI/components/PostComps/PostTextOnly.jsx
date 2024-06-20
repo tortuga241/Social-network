@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import './Style/PostTextOnly.css';
 import CommentsComp from "./CommponentsForPosts/CommentsComp";
+import AddComments from "./CommponentsForPosts/AddComents";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faComment, faShare, faEye, faArrowTurnDown } from "@fortawesome/free-solid-svg-icons";
+
 
 const PostTextOnly = ({postId, login}) => {
     const [post, setPost] = useState([])
@@ -19,6 +21,39 @@ const PostTextOnly = ({postId, login}) => {
     const [repostsValue, setRepostsValue] = useState(0)
 
     const staticPath = '../../../../server/static'
+
+    //Добавлениая часть
+    const [comments, setComments] = useState([]);
+    const [visibleComments, setVisibleComments] = useState(1);
+    const [hasOpenedComments, setHasOpenedComments] = useState(false);
+
+    const loadMoreComments = () => {
+        setVisibleComments(prev => prev + 9);
+        setHasOpenedComments(true);
+    };
+
+    const resetComments = () => {
+        setVisibleComments(1);
+        setHasOpenedComments(false);
+    };
+
+    useEffect(() => {
+        fetch(`http://localhost:3000/comments/post/${postId}`, {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'},
+        })
+            .then(response => response.json())
+            .then(response => {
+                if(response.status == 200){
+                    console.log('200')
+                    setComments(response.comments)
+                }else{
+                    console.log(400)
+                    console.log(`Error: ${response.error}`)
+                    // console.log(post)
+                }
+            })
+    }, [])
 
     useEffect(() => {
         // ИНФО О ПОСТЕ
@@ -276,7 +311,7 @@ const PostTextOnly = ({postId, login}) => {
                     <div className="PostUserName">{ post.repostPostId == null ? userName : `Repost: ${repostInfo}`}</div>
                     <div className="PostDate">{ post.date }</div>
                 </div>
-                <div className="PostMore" style={{ cursor: 'pointer', userSelect: 'none' }} onClick={handleOpenMenu}>...</div>
+                <div className="PostMore" style={{ cursor: 'pointer', userSelect: 'none', display: nowUser.login == login ? 'none' : 'flex' }} onClick={handleOpenMenu}>...</div>
                 <div style={{ width: '80px', maxHeight: '60px', marginLeft: '10px', display: menuStatus ? 'flex' : 'none', boxSizing: 'border-box', flexDirection: 'column' }}>
                     <div className={`PostMenu`} onClick={handleReport}>Пожаловаться</div>
                     <div className={`PostMenu2`} onClick={handleDelete}>Удалить</div>
@@ -301,7 +336,18 @@ const PostTextOnly = ({postId, login}) => {
             </div>
             <hr className="shrOt"/>
             <span className="CommFilter">Сначала популярные <FontAwesomeIcon icon={faArrowTurnDown} className="FilterCommentsIc"/></span>
-            <CommentsComp />
+            <div className="CommentsList">
+                <CommentsComp comments={comments.slice(0, visibleComments)} />
+            </div>
+            <div className="CommentsActions">
+                {visibleComments < comments.length && (
+                    <span className="NextMoreComm" onClick={loadMoreComments}>Показать остальные коментарии</span>
+                )}
+                {hasOpenedComments && (
+                    <span className="NextMoreComm" onClick={resetComments}>Скрыть комментарии</span>
+                )}
+            </div>
+            <AddComments postId={postId} avaPath={nowUser.avatarPath}/><br />
         </div>
     );
 }

@@ -7,7 +7,7 @@ import AddPostProfile from "../components/AddPostProfile.jsx";
 import PostTextOnly from "../components/PostComps/PostTextOnly.jsx";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PostPhotoTxt from "../components/PostComps/PostPhotoTxt.jsx";
-import { faImage, faMusic, faPencil, faGear } from '@fortawesome/free-solid-svg-icons';
+import { faImage, faMusic, faPencil, faGear, faMessage, faUserPlus, faUserMinus } from '@fortawesome/free-solid-svg-icons';
 import ModalWindow from "../components/UserProfileComponents/ModalWindow.jsx";
 import './Style/Profile.css';
 import { useParams, useNavigate } from "react-router-dom";
@@ -36,6 +36,8 @@ const UserProfile = () => {
     const [backgroundPath, setBackgroundPath] = useState('')
     const [friends, setFriends] = useState([])
     const [posts, setPosts] = useState([])
+    const [isFriend, setIsFriend] = useState(false)
+    const [isDropdownVisible, setIsDropdownVisible] = useState(false)
 
     // Запросы
     useEffect(() => {
@@ -45,7 +47,7 @@ const UserProfile = () => {
         })
             .then(response => response.json())
             .then(response => {
-                if(response.status == 200){
+                if(response.status === 200){
                     console.log('200')
                     console.log(response.user)
                     setUserName(response.user.nickname)
@@ -66,7 +68,7 @@ const UserProfile = () => {
         })
             .then(response => response.json())
             .then(response => {
-                if(response.status == 200){
+                if(response.status === 200){
                     console.log('200')
                     console.log(response.friends)
                     setFriends(response.friends)
@@ -75,14 +77,7 @@ const UserProfile = () => {
                     console.log(`${response.error}`)
                 }
             })
-
-    
-    }, [])
-
-    useEffect(()=>{
-        console.log(friends)
-        
-    }, [friends])
+    }, [login])
 
     useEffect(() => {
         fetch(`http://localhost:3000/post/findAuthor/${login}`, {
@@ -91,7 +86,7 @@ const UserProfile = () => {
         })
             .then(response => response.json())
             .then(response => {
-                if(response.status == 200){
+                if(response.status === 200){
                     console.log('200')
                     console.log(response.posts)
                     setPosts(response.posts)
@@ -99,11 +94,19 @@ const UserProfile = () => {
                     console.log(`Error: ${response.error}`)
                 }
             })
+    }, [login])
 
-    }, [])
+    useEffect(() => {
+        console.log(friends)
+        friends.forEach((friend) => {
+            if(friend.status === 'online'){
+                onlineFriends += 1
+            }
+        })
+        setOnlineValue(onlineFriends)
+    }, [friends])
 
     // Функции
-
     const handleButtonClick = (buttonName) => {
         setActiveButton(buttonName);
     };
@@ -131,17 +134,27 @@ const UserProfile = () => {
         setIsEditModalOpen(false);
     };
 
-    
+    const toggleFriendStatus = () => {
+        setIsFriend(!isFriend);
+    };
+
+    const toggleDropdown = () => {
+        setIsDropdownVisible(!isDropdownVisible);
+    };
 
     useEffect(() => {
-        friends.map((friend)=>{
-            if(friend.status == 'online'){
-                onlineFriends+=1
-            }
-        })
-        setOnlineValue(onlineFriends)
-    }, [friends])
+        const resetInactiveTimer = () => {
+            // Your logic to reset the timer
+        };
 
+        document.addEventListener("mousemove", resetInactiveTimer);
+        document.addEventListener("keydown", resetInactiveTimer);
+
+        return () => {
+            document.removeEventListener("mousemove", resetInactiveTimer);
+            document.removeEventListener("keydown", resetInactiveTimer);
+        };
+    }, []);
 
     return (
         <div className="MainDivUserProfile">
@@ -154,63 +167,90 @@ const UserProfile = () => {
                     <div className="MainDivProfileInfo">
                         <div className="backgroundImageDiv" style={{ backgroundImage: `url(${backgroundPath})` }}></div>
                         <div className="UserInfoDiv">
-                            { nowUser.login == login ? 
+                            { nowUser.login === login ? 
                                 <div className="SettingButDiv">
                                     <button className="SettingBut">Настройки <FontAwesomeIcon icon={faGear} className="IconProfBut" /></button>
                                 </div>
                                 :
-                                <div />
+                                <div className="MessengeProfileDiv">
+                                    <button className="SettingBut">Сообщение <FontAwesomeIcon icon={faMessage} className="IconProfBut" /></button>
+                                </div>
                             }
                             <div className="UserProfileInfo">
                                 <div className="UserAvatar" style={{ backgroundImage: `url(${avatarPath})` }}>
-                                    <div className="UserState"></div>
+                                    <div className="UserState">
+                                        <div className="user-statys-1"></div>
+                                        <div className="user-statys-2"></div>
+                                        <div className="user-statys-3"></div>
+                                        <div className="user-statys-4"></div>
+                                    </div>
                                 </div><br />
                                 <div className="UserNameProfile">{ userName }</div>
                                 <div className="UserCity">{ location }</div>
                                 <div className='profileDescription'>{ description }</div>
                             </div>
-                            { nowUser.login == login ? 
+                            { nowUser.login === login ? 
                                 <div className="EditUserProfile">
                                     <button className="EditBut" onClick={handleOpenEditModal}>Редактировать профиль <FontAwesomeIcon icon={faPencil} className="IconProfBut" /></button>
                                 </div>
                                 : 
-                                <div />
+                                <div className="AddToFriendsDiv">
+                                    <button className="EditBut" onClick={toggleFriendStatus}>
+                                        {isFriend ? (
+                                            <>Удалить из друзей <FontAwesomeIcon icon={faUserMinus} className="IconProfBut" /></>
+                                        ) : (
+                                            <>Добавить в друзья <FontAwesomeIcon icon={faUserPlus} className="IconProfBut" /></>
+                                        )}
+                                    </button>
+                                </div>
                             }
+                        </div>
+                        <div className="MoreProfileFunc" style={{ display: nowUser.login == login ? 'none' : 'flex'}}>
+                            <div className="MoreProfileFuncBut" onClick={toggleDropdown}>...</div>
+                            {isDropdownVisible && (
+                                <div className="dropdown-menu">
+                                    <button onClick={() => alert("Жалоба отправлена")}>Пожаловаться</button>
+                                    <button onClick={() => alert("Пользователь заблокирован")}>Заблокировать</button>
+                                </div>
+                            )}
                         </div>
                     </div>
                     <div className="MainDivContainer">
                         <div className="LeftSide">
-                            <div className="FriendsInfo">
-                                {friends.map((item, index) => {
-                                    if(index > 3){
-                                        return
-                                    }
-                                    return (
-                                        <ProfileFreindsComp avatarPath={friends[index].avatarPath} nickname={friends[index].nickname} friendLogin={friends[index].login}/>
-                                    )
-                                })}
+                        <div className="FriendsInfo">
+                                {friends.slice(0, 4).map((friend) => (
+                                    <ProfileFreindsComp
+                                        key={friend.login} // добавьте ключ для каждого компонента
+                                        avatarPath={friend.avatarPath}
+                                        nickname={friend.nickname}
+                                        friendLogin={friend.login}
+                                    />
+                                ))}
                             </div>
                             <div className="Buts">
-                                <button className="But1">Все друзья<div className="kolvoFriend">{ friends.length }</div></button>
+                                <button className="But1">Все друзья<div className="kolvoFriend">{friends.length}</div></button>
                                 <button className="But2">Ещё</button>
                             </div>
                         </div>
                         <div className="RightSide">
                             <div className="FriendsInfo">
-                                {friends.map((item, index) => {
-                                    if(index2 > 3){
-                                        return
-                                    }
-                                    if(friends[index].status == 'online'){
-                                        index2 = index2+1
+                                {friends.slice(0, 4).map((friend, index) => {
+                                    if (friend.status === 'online' && index2 < 4) {
+                                        index2++;
                                         return (
-                                            <ProfileFreindsComp avatarPath={friends[index].avatarPath} nickname={friends[index].nickname} friendLogin={friends[index].login}/>
-                                        )
+                                            <ProfileFreindsComp
+                                                key={friend.login} // добавьте ключ для каждого компонента
+                                                avatarPath={friend.avatarPath}
+                                                nickname={friend.nickname}
+                                                friendLogin={friend.login}
+                                            />
+                                        );
                                     }
+                                    return null;
                                 })}
                             </div>
                             <div className="Buts">
-                                <button className="But1">Онлайн<div className="kolvoFriend">{ onlineValue }</div></button>
+                                <button className="But1">Онлайн<div className="kolvoFriend">{onlineValue}</div></button>
                                 <button className="But2">Ещё</button>
                             </div>
                         </div>
@@ -269,8 +309,8 @@ const UserProfile = () => {
                                 </button>
                             </div>
                         </div>
-                    </div> */}
-                    {/* <div className="MainDivSubscrideProfile">
+                    </div>
+                    <div className="MainDivSubscrideProfile">
                         <div className="LeftSide">
                             <div className="Butos">
                                 <button className="ButSub">Подписки<div className="SubButKolvo">5</div></button>
@@ -281,7 +321,7 @@ const UserProfile = () => {
                             </div>
                         </div>
                     </div> */}
-                    <AddPostProfile accOwner={ nowUser.login == login ? true : false } login={ login } avaPath={ avatarPath } />
+                        <AddPostProfile accOwner={ nowUser.login == login ? true : false } login={ login } avaPath={ avatarPath } />
                     { posts.length > 0 ? 
                         posts
                             .slice()

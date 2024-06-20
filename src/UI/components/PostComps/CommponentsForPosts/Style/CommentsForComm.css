@@ -14,12 +14,13 @@
 .NextComments {
     display: flex;
     flex-direction: row;
-    margin-left: 40px;
+    margin-left: 58px;
+    margin-bottom: 15px;
 }
 
 .UserAvatarNextCom {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background-size: cover;
     background-position: center;
@@ -33,14 +34,14 @@
     font-weight: 600;
     color: #90F6FF;
     margin-left: 5px;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .TxtMore {
     font-size: 13px;
     margin-left: 10px;
     color: rgb(167, 167, 167);
-    margin-top: 12px;
+    margin-top: 7px;
 }
 
 .NextMoreComm {

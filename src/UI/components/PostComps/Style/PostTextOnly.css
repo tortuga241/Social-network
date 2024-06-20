@@ -7,7 +7,6 @@
     min-height: 300px;
     background: var(--COLOR-1, #2D2F30);
     border-radius: 10px;
-    margin-left: 30px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -189,6 +188,20 @@
     color: #90F6FF;
     font-size: 14px;
     margin-left: 20px;
+}
+
+.NextMoreComm {
+    font-size: 15px;
+    color: #90F6FF;
+    margin-top: 15px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.CommentsList {
+    display: flex;
+    flex-direction: column-reverse;
+    min-height: 110px;
 }
 
 /* ---------------------------------------------------- */
