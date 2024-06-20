@@ -1,0 +1,60 @@
+.MainDivCompSub {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    border-radius: 10px;
+    background: var(--COLOR-1, #313335);
+}
+
+.AvatarGroup {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-top: 5px;
+    margin-left: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: white;
+}
+
+.TextContentSub {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 70px;
+    justify-content: space-around;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.TitleGroup {
+    font-size: 18px;
+    color: var(--COLOR-3, #ffffff);
+    font-weight: 600;
+}
+
+.TypeGroup {
+    font-size: 15px;
+    font-weight: 200;
+    color: rgb(143, 143, 143);
+}
+
+.KolvoSubov {
+    font-size: 15px;
+    font-weight: 200;
+    color: rgb(143, 143, 143);
+    display: flex;
+    flex-direction: row;
+}
+
+.KolvosubTXT {
+    font-size: 15px;
+    font-weight: 200;
+    color: rgb(143, 143, 143);
+    display: flex;
+    flex-direction: row;
+    margin-left: 5px;
+}

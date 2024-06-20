@@ -1,0 +1,51 @@
+.MainDivCommForComm {
+    display: flex;
+    flex-direction: column;
+}
+
+.shrOtTwo {
+    width: 70%;
+    height: 1px;
+    border: none;
+    background-color: rgb(167, 167, 167);
+    margin: 10px 58px;
+}
+
+.NextComments {
+    display: flex;
+    flex-direction: row;
+    margin-left: 58px;
+    margin-bottom: 15px;
+}
+
+.UserAvatarNextCom {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: white;
+}
+
+.UserNameNextCom {
+    font-size: 15px;
+    font-weight: 600;
+    color: #90F6FF;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.TxtMore {
+    font-size: 13px;
+    margin-left: 10px;
+    color: rgb(167, 167, 167);
+    margin-top: 7px;
+}
+
+.NextMoreComm {
+    font-size: 15px;
+    color: #90F6FF;
+    margin-top: 15px;
+}
