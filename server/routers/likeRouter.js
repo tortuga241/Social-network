@@ -3,7 +3,7 @@ const { Op } = require('sequelize')
 const bodyParser = require('body-parser')
 const LikesTab = require('../database/likes')
 const commentsLikesTab = require('../database/commentsLikes')
-const FullDateInfo = require('../modules/dateInfo')
+const GetFullDateInfo = require('../modules/dateInfo')
 
 const router = express.Router()
 router.use(bodyParser.json())
@@ -95,7 +95,7 @@ router.post('/post', async(req, res) => {
     LikesTab.create({
         postId: data.postId,
         executer: data.executer,
-        date: FullDateInfo
+        date: GetFullDateInfo()
     })
     res.json({
         status: 200,
@@ -119,7 +119,7 @@ router.post('/comment', async(req, res) => {
     commentsLikesTab.create({
         commentId: data.commentId,
         executer: data.executer,
-        date: FullDateInfo
+        date: GetFullDateInfo()
     })
 
     res.json({

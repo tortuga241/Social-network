@@ -2,7 +2,7 @@ const express = require('express')
 const { Op } = require('sequelize')
 const bodyParser = require('body-parser')
 const CommentsTab = require('../database/comments')
-const FullDateInfo = require('../modules/dateInfo')
+const GetFullDateInfo = require('../modules/dateInfo')
 
 const router = express.Router()
 router.use(bodyParser.json())
@@ -54,6 +54,8 @@ router.get('/post/:id', async(req, res) => {
 router.post('/', async(req, res) => {
     const data = req.body
 
+    console.log(`!!!!!!!!!!!!!!!!!!!!`)
+
     if(!data.id || !data.content || !data.executer){
         res.json({
             status: 400,
@@ -67,8 +69,10 @@ router.post('/', async(req, res) => {
         postId: data.id,
         content: data.content,
         executer: data.executer,
-        date: FullDateInfo
+        date: GetFullDateInfo()
     })
+
+    console.log(`@@@@DATE@@@@   ${GetFullDateInfo()}`)
 
     res.json({
         status: 200,

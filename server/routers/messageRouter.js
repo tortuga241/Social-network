@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const MessagesTab = require('../database/messages')
 const GroupChatMessagesTab = require('../database/groupChatMessages')
-const FullDateInfo = require('../modules/dateInfo')
+const GetFullDateInfo = require('../modules/dateInfo')
 
 const router = express.Router()
 router.use(bodyParser.json())
@@ -17,7 +17,7 @@ router.post('/add', async(req,res)=>{
         to: data.to,
         content: data.content,
         status: 'unread',
-        date: FullDateInfo
+        date: GetFullDateInfo()
     }) 
 
     res.json({
@@ -145,7 +145,7 @@ router.post('/groups/add', async(req,res)=>{
         author: data.author,
         content: data.content,
         status: 'unread',
-        date: FullDateInfo
+        date: GetFullDateInfo()
     }) 
 
     res.json({
