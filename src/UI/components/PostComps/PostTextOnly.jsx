@@ -270,7 +270,7 @@ const PostTextOnly = ({postId, login}) => {
             setMenuStatus(true)
         }
     }
-
+    
     const handleReport = () => {
         console.log(`Report:`)
         const reportData = {
@@ -280,10 +280,10 @@ const PostTextOnly = ({postId, login}) => {
         console.log(reportData)
         setMenuStatus(false)
     }
-
+    
     const handleDelete = () => {
         console.log('Delete')
-
+    
         fetch(`http://localhost:3000/post/${postId}`, {
             method: 'DELETE',
             headers: {'Content-Type': 'application/json'}
@@ -297,9 +297,9 @@ const PostTextOnly = ({postId, login}) => {
                     console.log(`Error: ${response.error}`)
                 }
             }) 
-
+    
         setMenuStatus(false)
-    }
+    }    
 
     // console.log('================')
 
@@ -335,7 +335,6 @@ const PostTextOnly = ({postId, login}) => {
                 </div>
             </div>
             <hr className="shrOt"/>
-            <span className="CommFilter">Сначала популярные <FontAwesomeIcon icon={faArrowTurnDown} className="FilterCommentsIc"/></span>
             <div className="CommentsList">
                 <CommentsComp comments={comments.slice(0, visibleComments)} />
             </div>
@@ -353,4 +352,3 @@ const PostTextOnly = ({postId, login}) => {
 }
 
 export default PostTextOnly;
-

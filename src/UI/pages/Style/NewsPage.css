@@ -6,14 +6,16 @@
 .MainContentPage{
     display: flex;
     margin: auto;
+    width: 1050px;
 }
 
 .DivForMain {
     display: flex;
     flex-direction: column;
-    width: 210px; /* Задать фиксированную ширину для родительского элемента */
+    width: 320px; /* Задать фиксированную ширину для родительского элемента */
     height: 450px;
 }
+
 .NewsPageMore {
     display: flex;
     flex-direction: column;
@@ -75,9 +77,9 @@
     width: 200px;
     height: 130px;
     background: var(--COLOR-1, #2D2F30);
-    margin-left: 15px;
     border-radius: 10px;
     padding: 5px;
+    align-items: center;
 }
 
 .PunktForBut {
@@ -85,8 +87,8 @@
 }
 
 
-.ButPostNews {
-    width: 180px;
+.ButPostNews, .ButSearchNews {
+    width: 190px;
     height: 30px;
     font-size: 15px;
     font-weight: 500;
@@ -101,34 +103,7 @@
     margin-left: 5px;
 }
 
-.ButPhotoNews {
-    width: 180px;
-    height: 30px;
-    font-size: 15px;
-    font-weight: 500;
-    color: white;
-    background: var(--COLOR-2, #3C4245);
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    text-align: left;
-    padding-left: 20px;
-    margin-top: 10px;
-    margin-left: 5px;
-}
-
-.ButSearchNews {
-    width: 180px;
-    height: 30px;
-    font-size: 15px;
-    font-weight: 500;
-    color: white;
-    background: var(--COLOR-2, #3C4245);
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    text-align: left;
-    padding-left: 20px;
-    margin-top: 10px;
-    margin-left: 5px;
+.active {
+    background-color: var(--COLOR-3, #3B5355);
+    color: #90F6FF;
 }

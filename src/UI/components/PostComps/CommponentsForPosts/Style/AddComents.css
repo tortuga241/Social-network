@@ -35,3 +35,14 @@
     margin-top: 12px;
     cursor: pointer;
 }
+
+.AddPostIconsComBut {
+    color: white;
+    width: 20px;
+    height: 20px;
+}
+
+.AddPostIconsComBut:hover {
+    transition: 0.3s;
+    color: #90F6FF;
+}

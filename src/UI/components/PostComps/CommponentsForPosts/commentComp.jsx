@@ -22,6 +22,12 @@ const CommentComp = ({ comment }) => {
             })
     },[])
 
+    const [isDropdownVisible, setDropdownVisible] = useState(false);
+
+    const toggleDropdown = () => {
+        setDropdownVisible(!isDropdownVisible);
+      };
+
     return (
         <div className="MainDivComments">
             <div className="CommentsInfo">
@@ -35,6 +41,15 @@ const CommentComp = ({ comment }) => {
                             <span className="ButCom" style={{marginRight: '2px'}}>Ответить</span>
                         </div>
                     </div>
+                </div>
+                <div className="comments-container-commetns">
+                    <div className="MoreComemntsFunc" onClick={toggleDropdown}>...</div>
+                    {isDropdownVisible && (
+                    <div className="dropdown-menu-comments">
+                        <button onClick={() => alert("Жалоба отправлена")}>Пожаловаться</button>
+                        <button onClick={() => alert("Пользователь заблокирован")}>Заблокировать</button>
+                    </div>
+                    )}
                 </div>
             </div>
         </div>

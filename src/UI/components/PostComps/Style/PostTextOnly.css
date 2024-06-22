@@ -7,7 +7,6 @@
     min-height: 300px;
     background: var(--COLOR-1, #2D2F30);
     border-radius: 10px;
-    margin-top: 20px;
     margin-bottom: 20px;
 }
 
@@ -201,7 +200,7 @@
 .CommentsList {
     display: flex;
     flex-direction: column-reverse;
-    min-height: 110px;
+    min-height: 5px;
 }
 
 /* ---------------------------------------------------- */
