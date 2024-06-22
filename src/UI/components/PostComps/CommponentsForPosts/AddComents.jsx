@@ -10,12 +10,11 @@ const AddComments = ({postId, avaPath}) => {
     const staticPath = '../../../../../server/static'
 
     const nowUser = JSON.parse(localStorage.getItem('user'))
-    const [inputValue, setInputValue] = useState(null)
+    const [inputValue, setInputValue] = useState('');
 
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (addPostRef.current && !addPostRef.current.contains(event.target)) {
-                // Сбрасываем высоту текстового поля и контейнера
                 if (textareaRef.current) {
                     textareaRef.current.style.height = 'auto';
                 }
@@ -41,18 +40,25 @@ const AddComments = ({postId, avaPath}) => {
                 id: postId
             })
         })
-            .then(location.reload())
-        console.log('aaa')
-    }
+        .then(() => location.reload())
+        .catch(error => console.error('Error:', error));
+    };
 
     const handleInputChange = (e) => {
-        setInputValue(e.target.value)
+        setInputValue(e.target.value);
         if (textareaRef.current) {
             textareaRef.current.style.height = 'auto';
             textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
         }
         if (addPostRef.current) {
             addPostRef.current.style.height = `${addPostRef.current.scrollHeight}px`;
+        }
+    };
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            handleSend();
         }
     };
 
@@ -67,12 +73,14 @@ const AddComments = ({postId, avaPath}) => {
                             className="InputPostPro"
                             rows="1"
                             ref={textareaRef}
+                            value={inputValue}
                             onChange={handleInputChange}
+                            onKeyDown={handleKeyDown}
                         ></textarea>
                     </div>
                 </div>
                 <div className='AddPostIconsCom' onClick={handleSend}>
-                    <FontAwesomeIcon icon={faPaperPlane} style={{ color: "#ffffff", width: '20px', height: '20px' }} />
+                    <FontAwesomeIcon icon={faPaperPlane} className="AddPostIconsComBut"/>
                 </div>
             </div>
         </div>

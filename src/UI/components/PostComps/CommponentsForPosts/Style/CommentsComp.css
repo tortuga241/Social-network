@@ -1,10 +1,9 @@
 .PostComments {
     width: 92%;
-    min-height: 90px;
+    min-height: 5px;
     background: var(--COLOR-1, #2D2F30);
     margin-left: 20px;
     color: white;
-    margin-top: 15px;
 }
 
 .PostComments {
@@ -32,6 +31,8 @@
 .CommentsInfo {
     display: flex;
     flex-direction: row;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
 
 .CommentsTxtContent {
@@ -68,3 +69,53 @@
     font-size: 13px;
     margin-top: 2px;
 }
+
+
+
+
+
+
+
+/* Часть с ... */
+.comments-container-commetns {
+    position: relative;
+    margin-left: 300px;
+    margin-top: -20px;
+  }
+  
+  .MoreComemntsFunc{
+    width: 25px;
+    height: 1px;
+    font-size: 23pt;
+    font-weight: 600;
+    color: rgb(167, 167, 167);
+    cursor: pointer;
+  }
+  
+  .dropdown-menu-comments {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 4px;
+    z-index: 1;
+    min-width: 120px;
+  }
+  
+  .dropdown-menu-comments button {
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 12pt;
+    color: black;
+  }
+  
+  .dropdown-menu-comments button:hover {
+    background-color: #f0f0f0;
+  }

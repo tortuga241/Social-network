@@ -158,7 +158,7 @@ const NewsPage = () => {
                         }
                     </div>
                 </div>
-                {/* <div className='RightFilterDivNews'>
+                <div className='RightFilterDivNews'>
                     <div className='PunkForBut'>
                         <button
                             className={`ButPostNews ${activeButton === 'Все публикации' ? 'active' : ''}`}
@@ -183,7 +183,7 @@ const NewsPage = () => {
                             Публикации друзей
                         </button>
                     </div>
-                </div> */}
+                </div>
             </div>
         </div>
     );
