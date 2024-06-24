@@ -80,8 +80,8 @@ router.post('/', async(req, res) => {
     })
 })
 
-router.delete('/', async(req, res) => {
-    const id = req.body.id
+router.delete('/:id', async(req, res) => {
+    const id = req.params.id
 
     if(!id){
         res.json({
