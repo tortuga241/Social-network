@@ -4,12 +4,12 @@ import CommentsComp from "./CommponentsForPosts/CommentsComp";
 import AddComments from "./CommponentsForPosts/AddComents";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faComment, faShare, faEye, faArrowTurnDown } from "@fortawesome/free-solid-svg-icons";
-
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 const PostTextOnly = ({postId, login}) => {
     const [post, setPost] = useState([])
-    const [user, setUser] = useState(null)
-
+    const [user, setUser] = useState([])
+    const navigate = useNavigate()
 
     const [userName, setUserName] = useState('Loading...')
     const [avatarPath, setAvatarPath] = useState(null)
@@ -83,6 +83,7 @@ const PostTextOnly = ({postId, login}) => {
                     // console.log('200')
                     setUserName(response.user.nickname)
                     setAvatarPath(response.user.avatarPath)
+                    setUser(response.user)
                 }else{
                     // console.log(`Error: ${response.error}`)
                 }
@@ -308,13 +309,16 @@ const PostTextOnly = ({postId, login}) => {
             <div className="PostTxtInfo">
                 <div className="UserAvatarPost" style={{ backgroundImage: `url(${staticPath}/${avatarPath})` }}></div>
                 <div className="PostInfo">
-                    <div className="PostUserName">{ post.repostPostId == null ? userName : `Repost: ${repostInfo}`}</div>
+                    <div className="PostUserName" onClick={() => {navigate(`/profile/${ post.repostPostId == null ? user.login : repostInfo }`); window.location.reload()}} style={{ cursor: 'pointer' }}>{ post.repostPostId == null ? userName : `Repost: ${repostInfo}`}</div>
                     <div className="PostDate">{ post.date }</div>
                 </div>
-                <div className="PostMore" style={{ cursor: 'pointer', userSelect: 'none', display: nowUser.login == login ? 'none' : 'flex' }} onClick={handleOpenMenu}>...</div>
-                <div style={{ width: '80px', maxHeight: '60px', marginLeft: '10px', display: menuStatus ? 'flex' : 'none', boxSizing: 'border-box', flexDirection: 'column' }}>
-                    <div className={`PostMenu`} onClick={handleReport}>Пожаловаться</div>
-                    <div className={`PostMenu2`} onClick={handleDelete}>Удалить</div>
+                <div className="PostMore" style={{ cursor: 'pointer', userSelect: 'none' }} onClick={handleOpenMenu}>...</div>
+                <div style={{ width: '80px', maxHeight: '60px', marginLeft: '10px', display: menuStatus ? 'flex' : 'none', boxSizing: 'border-box', flexDirection: 'column', paddingTop: '20px' }}>
+                    { nowUser.login != login ?
+                        <div className={`PostMenu`} onClick={handleReport}>Пожаловаться</div>
+                        :
+                        <div className={`PostMenu2`} onClick={handleDelete}>Удалить</div>
+                    }
                 </div>
             </div>
             <div className="PostTextContent">{ post.content }</div>

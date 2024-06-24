@@ -1,10 +1,14 @@
 import React from "react";
 import './Style/CommentsComp.css';
 import { useEffect, useState } from "react";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 const CommentComp = ({ comment }) => {
     const staticPath = '../../../../../server/static'
     const [avaPath, setAvaPath] = useState(null)
+
+    const nowUser = JSON.parse(localStorage.getItem('user'))
+    const navigate = useNavigate()
 
     useEffect(()=>{
         fetch(`http://localhost:3000/account/findById/${comment.executer}`, {
@@ -26,14 +30,22 @@ const CommentComp = ({ comment }) => {
 
     const toggleDropdown = () => {
         setDropdownVisible(!isDropdownVisible);
-      };
+    };
+
+    const handleDelete = () => {
+        fetch(`http://localhost:3000/comments/${comment.id}`, {
+            method: 'DELETE',
+            headers: {'Content-Type': 'application/json'},
+        })
+            .then(location.reload())
+    }
 
     return (
         <div className="MainDivComments">
             <div className="CommentsInfo">
                 <div className="UserAvatarComment" style={{ backgroundImage: `url(${staticPath}/${avaPath})` }}></div>
                 <div className="UserNameComments">
-                    <div className="UserNameCom">{comment.executer}</div>
+                    <div className="UserNameCom" onClick={() => {navigate(`/profile/${comment.executer}`); window.location.reload()}} style={{ cursor: 'pointer' }}>{comment.executer}</div>
                     <div className="CommentsTxtContent">{comment.content}</div>
                     <div className="CommentsAddDate">
                         <div className="CommentsDate">{comment.date}</div>
@@ -43,11 +55,17 @@ const CommentComp = ({ comment }) => {
                     </div>
                 </div>
                 <div className="comments-container-commetns">
-                    <div className="MoreComemntsFunc" onClick={toggleDropdown}>...</div>
+                    <div className="MoreComemntsFunc" style={{ fontSize: '15pt', paddingTop: '10px', userSelect: 'none' }} onClick={toggleDropdown}>...</div>
                     {isDropdownVisible && (
                     <div className="dropdown-menu-comments">
-                        <button onClick={() => alert("Жалоба отправлена")}>Пожаловаться</button>
-                        <button onClick={() => alert("Пользователь заблокирован")}>Заблокировать</button>
+                        { nowUser.login != comment.executer ?
+                            <>
+                            <button onClick={() => alert("Жалоба отправлена")}>Пожаловаться</button> 
+                            <button onClick={() => alert("Пользователь заблокирован")}>Заблокировать</button>
+                            </>
+                        :
+                            <button onClick={handleDelete}>Удалить</button>
+                        }
                     </div>
                     )}
                 </div>
