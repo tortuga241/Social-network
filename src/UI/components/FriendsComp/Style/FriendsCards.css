@@ -1,0 +1,87 @@
+.MainDivFriendsCard {
+    display: flex;
+    flex-direction: column;
+    width: 560px;
+    height: 90px;
+    background: var(--COLOR-1, #2D2F30);
+    margin-top: 15px;
+}
+
+.DopDivFriendsCard {
+    display: flex;
+    flex-direction: row;
+}
+
+.UserAvatarFriendsCards {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: black;
+    border: none;
+}
+
+.UserInfoAndButs {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    gap: 3px;
+    margin-top: 5px;
+}
+
+.UserNameFriendsCard {
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+}
+
+.UserGroupFriendsCard {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgb(167, 167, 167);
+}
+
+.TxtFriendsCardBut {
+    color:#90F6FF;
+    font-size: 15px;
+}
+ 
+.hrFriendsCards {
+    margin-top: 14px;
+    background-color: rgb(167, 167, 167);
+    border: none;
+    height: 1px;
+    width: 400px;  
+    margin: auto; 
+}
+
+
+
+.user-statys-frinds-1, .user-statys-frinds-2, .user-statys-frinds-3, .user-statys-frinds-4 {
+    width: 16px;
+    height: 16px;
+    border: solid 1px black;
+    border-radius: 50%;
+    display: none;
+    margin-left: 60px;
+    margin-top:  55px;
+}
+
+.user-statys-frinds-1.active {
+    display: block;
+    background-color: rgb(13, 147, 209); /* Онлайн */
+}
+
+.user-statys-frinds-2.active {
+    display: block;
+    background-color: rgb(212, 145, 0); /* Отошел */
+}
+
+.user-statys-frinds-3.active {
+    display: block;
+    background-color: rgb(13, 147, 209); /* Дефолтный */
+}
+
+.user-statys-frinds-4.active {
+    display: block;
+    background-color: gray; /* Не в сети */
+}

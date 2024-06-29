@@ -2,6 +2,8 @@ import React from "react";
 import './Style/CommentsComp.css';
 import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 const CommentComp = ({ comment }) => {
     const staticPath = '../../../../../server/static'
@@ -40,6 +42,12 @@ const CommentComp = ({ comment }) => {
             .then(location.reload())
     }
 
+    const [liked, setLiked] = useState(false);
+
+    const handleClick = () => {
+        setLiked(!liked);
+    };
+
     return (
         <div className="MainDivComments">
             <div className="CommentsInfo">
@@ -68,6 +76,9 @@ const CommentComp = ({ comment }) => {
                         }
                     </div>
                     )}
+                    <div className="LikeBut">
+                        <button className="IconLikeButComent" onClick={handleClick}><FontAwesomeIcon icon={faHeart} style={{color: liked ? "red" : "#ffffff"}} /><div className="CommentsSchet">2</div></button>
+                    </div>
                 </div>
             </div>
         </div>

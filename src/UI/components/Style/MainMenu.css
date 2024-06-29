@@ -30,6 +30,12 @@
     color: white;
 }
 
+.TextMenu:hover {
+    background: var(--COLOR-2, #3f3f3f); /* Adjust the color as needed */
+    color: white;
+    transition: 0.3s;
+}
+
 .SecondPartMenu {
     height: 132px;
     background: var(--COLOR-1, #2D2F30);
