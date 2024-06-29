@@ -3,6 +3,8 @@ const path = require('path')
 const express = require('express')
 const fs = require('fs')
 
+const UsersTab = require('../../database/users')
+
 const router = express.Router()
 
 router.use(express.json());
@@ -10,7 +12,7 @@ router.use(express.urlencoded({ extended: true }));
 
 const storage = multer.diskStorage({
   destination(req, file, cb){
-    cb(null, path.join(__dirname, '..', 'static', 'userAvatars'))
+    cb(null, path.join(__dirname, '..', '..','static', 'userAvatars'))
   },
   filename(req, file, cb){
     const uniqueFileName = '..png'
@@ -29,12 +31,14 @@ const fileFilter =  (req,file,cb) => {
 
 const fileMiddleware = multer({storage, fileFilter});
 
-router.post('/userAvatarUpload', fileMiddleware.single('avatar'), (req, res) => {
+router.post('/userAvatarUpload', fileMiddleware.single('avatar'), async(req, res) => {
   console.log(`router.post: ${req.body.userName}`)
     try {
+      console.log();
       if(req.file){
-        const oldPath = path.join(__dirname, '..', 'static', 'userAvatars', '..png')
-        const newPath = path.join(__dirname, '..', 'static', 'userAvatars', `${req.body.userName}.png`)
+        console.log(`!!!!!`);
+        const oldPath = path.join(__dirname, '..', '..', 'static', 'userAvatars', '..png')
+        const newPath = path.join(__dirname, '..', '..', 'static', 'userAvatars', `${req.body.userName}.png`)
 
         fs.rename(oldPath, newPath, (err) => {
           if (err) {
@@ -47,6 +51,10 @@ router.post('/userAvatarUpload', fileMiddleware.single('avatar'), (req, res) => 
             console.log('Файл успешно переименован.');
           }
         });
+        
+        await UsersTab.update({
+          avatarPath: `userAvatars/${req.body.userName}.png`
+        })
         res.json({status: '200'})
       }
     } catch (e) {
