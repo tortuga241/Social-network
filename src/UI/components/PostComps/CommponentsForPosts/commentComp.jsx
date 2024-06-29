@@ -9,6 +9,9 @@ const CommentComp = ({ comment }) => {
     const staticPath = '../../../../../server/static'
     const [avaPath, setAvaPath] = useState(null)
 
+    const [likeCount, setLikeCount] = useState(0)
+    const [likedStatus, setLikedStatus] = useState(false);
+
     const nowUser = JSON.parse(localStorage.getItem('user'))
     const navigate = useNavigate()
 
@@ -20,8 +23,25 @@ const CommentComp = ({ comment }) => {
             .then(response => response.json())
             .then(response => {
                 if(response.status == 200){
-                    console.log(`20202020202020`)
+                    // console.log(`20202020202020`)
                     setAvaPath(response.user.avatarPath)
+                }else{
+                    console.log(`${response.status}: ${response.error}`)
+                }
+            })
+
+        fetch(`http://localhost:3000/likes/comment/${comment.id}`, {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'},
+        })
+            .then(response => response.json())
+            .then(response => {
+                if(response.status == 200){
+                    console.log(`200!!!!!`)
+                    // console.log(`likes: `+ response.likes.length)
+                    setLikeCount(response.likes.length)
+                    const likeExists = response.likes.some(like => like.executer === nowUser.login)
+                    setLikedStatus(likeExists)
                 }else{
                     console.log(`${response.status}: ${response.error}`)
                 }
@@ -42,11 +62,48 @@ const CommentComp = ({ comment }) => {
             .then(location.reload())
     }
 
-    const [liked, setLiked] = useState(false);
 
-    const handleClick = () => {
-        setLiked(!liked);
-    };
+
+    const handleAddLike = () => {
+        if(likedStatus){
+            // Удалить лайк
+            setLikedStatus(false)
+            setLikeCount(likeCount - 1)
+
+            fetch(`http://localhost:3000/likes/comment/`, {
+                method: 'DELETE',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    commentId: comment.id,
+                    executer: nowUser.login
+                })
+            })
+        }else{
+            // Добавить лайк
+            setLikedStatus(true)
+            setLikeCount(likeCount + 1)
+
+            fetch('http://localhost:3000/likes/comment', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    commentId: comment.id,
+                    executer: nowUser.login
+                })
+            })
+                .then(response => response.json())
+                .then(response => {
+                    if(response.status == 200){
+                        console.log(200)
+                    }else{
+                        console.log('Ошибка лайка комментария: '+response.error)
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching login:', error);
+                });
+        }
+    }
 
     return (
         <div className="MainDivComments">
@@ -77,7 +134,7 @@ const CommentComp = ({ comment }) => {
                     </div>
                     )}
                     <div className="LikeBut">
-                        <button className="IconLikeButComent" onClick={handleClick}><FontAwesomeIcon icon={faHeart} style={{color: liked ? "red" : "#ffffff"}} /><div className="CommentsSchet">2</div></button>
+                        <button className="IconLikeButComent" onClick={handleAddLike}><FontAwesomeIcon icon={faHeart} style={{color: likedStatus ? "red" : "#ffffff"}} /><div className="CommentsSchet">{ likeCount }</div></button>
                     </div>
                 </div>
             </div>
