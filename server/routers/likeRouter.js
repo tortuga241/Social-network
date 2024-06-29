@@ -43,8 +43,8 @@ router.get('/post/:postId', async(req, res) => {
     })
 })
 
-router.get('/comment', async(req, res) => {
-    const id = req.body.commentId
+router.get('/comment/:commentId', async(req, res) => {
+    const id = req.params.commentId
 
     if(!id){
         res.json({
@@ -167,7 +167,7 @@ router.delete('/post', async(req, res) => {
     res.end()
 })
 
-router.delete('/comment', async(req, res) => {
+router.delete('/comment/', async(req, res) => {
     const commentId = req.body.commentId
     const userLogin = req.body.executer
 

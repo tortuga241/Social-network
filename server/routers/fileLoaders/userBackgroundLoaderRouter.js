@@ -3,6 +3,8 @@ const path = require('path')
 const express = require('express')
 const fs = require('fs')
 
+
+const UsersTab = require(`../../database/users`)
 const router = express.Router()
 
 router.use(express.json());
@@ -10,7 +12,7 @@ router.use(express.urlencoded({ extended: true }));
 
 const storage = multer.diskStorage({
   destination(req, file, cb){
-    cb(null, path.join(__dirname, '..', 'static', 'userBackgrounds'))
+    cb(null, path.join(__dirname, '..', '..', 'static', 'userBackgrounds'))
   },
   filename(req, file, cb){
     const uniqueFileName = '..png'
@@ -29,12 +31,12 @@ const fileFilter =  (req,file,cb) => {
 
 const fileMiddleware = multer({storage, fileFilter});
 
-router.post('/userBackgroundUpload', fileMiddleware.single('background'), (req, res) => {
+router.post('/userBackgroundUpload', fileMiddleware.single('background'), async(req, res) => {
   console.log(`router.post: ${req.body.userName}`)
     try {
       if(req.file){
-        const oldPath = path.join(__dirname, '..', 'static', 'userBackgrounds', '..png')
-        const newPath = path.join(__dirname, '..', 'static', 'userBackgrounds', `${req.body.userName}.png`)
+        const oldPath = path.join(__dirname, '..', '..', 'static', 'userBackgrounds', '..png')
+        const newPath = path.join(__dirname, '..', '..', 'static', 'userBackgrounds', `${req.body.userName}.png`)
 
         fs.rename(oldPath, newPath, (err) => {
           if (err) {
@@ -47,6 +49,10 @@ router.post('/userBackgroundUpload', fileMiddleware.single('background'), (req, 
             console.log('Файл успешно переименован.');
           }
         });
+
+        await UsersTab.update({
+          avatarPath: `userBackgrounds/${req.body.userName}.png`
+        })
         res.json({status: '200'})
       }
     } catch (e) {

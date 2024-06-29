@@ -3,6 +3,7 @@ const { Op } = require('sequelize')
 const bodyParser = require('body-parser')
 
 const SettingsTab = require('../database/settings')
+const UsersTab = require('../database/users')
 
 const router = express.Router()
 router.use(bodyParser.json())
@@ -117,6 +118,48 @@ router.patch('/standart', async(req, res) => {
         showLikes: "No one",
         showMusic: "No one",
         showLocation: "No one"
+    })
+
+    res.json({
+        status: 200,
+        error: null
+    })
+})
+
+router.patch('/description', async(req,res) => {
+    const login = req.body.login
+    const content = req.body.content
+
+    console.log(`DESCTIPTION: ${content}`)
+
+    if(!login){
+        res.json({
+            status: 400,
+            error: 'Set desctiption error: login field is null'
+        })
+        res.end()
+        return
+    }
+
+    const user = await UsersTab.findOne({
+        where: {
+            login
+        }
+    })
+
+    if(!user || user.length == 0){
+        res.json({
+            status: 400,
+            error: 'Set description error: user undefined'
+        })
+        res.end()
+        return
+    }
+
+    console.log(user)
+
+    await user.update({
+        description: content
     })
 
     res.json({

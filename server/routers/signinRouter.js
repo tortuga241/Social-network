@@ -175,7 +175,7 @@ router.post('/register', mwRegConfig, mwSimilarEmail, mwSimilarLogin, async(req,
     res.end()
 
     checkedAccount = {
-        login: data.login,
+        login: data.login.toLowerCase(),
         nickname: data.login,
         password: hashedPassword,
         phoneNumber: null,
