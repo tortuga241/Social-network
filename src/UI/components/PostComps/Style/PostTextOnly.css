@@ -7,7 +7,7 @@
     min-height: 300px;
     background: var(--COLOR-1, #2D2F30);
     border-radius: 10px;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .PostTxtInfo {
@@ -33,7 +33,7 @@
     display: flex;
     flex-direction: column;
     margin-left: 10px;
-    max-width: 215px;
+    width: 410px;
 }
 
 .PostUserName {
@@ -51,7 +51,9 @@
     font-size: 25pt;
     font-weight: 600;
     color: rgb(133, 133, 133);
-    margin-left: 260px;
+    margin-left: 50px;
+    position: absolute;
+    left: 1130px;
 }
 
 .PostTextContent {
@@ -118,6 +120,8 @@
     background-color: #8f3434;
     color: white;
     overflow: hidden;
+    margin-left: 70px;
+    margin-top: 15px;
 }
 .PostMenu2:hover{
     background-color: #682222;

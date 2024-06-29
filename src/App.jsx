@@ -6,6 +6,7 @@ import ForgotPassword from './UI/components/ForgotPasswordPage/FofgotPasswordPag
 import CreateNewPasswordPage from './UI/components/ForgotPasswordPage/CreateNewPasswordPage.jsx';
 import NewsPage from './UI/pages/NewsPage.jsx';
 // import Music from './UI/pages/Music.jsx';
+import Messenger from './UI/pages/Messenger.jsx';
 import Friends from './UI/pages/Frriends.jsx';
 import ConfirmEmail from './UI/pages/confirmEmail.jsx'
 import './App.css';
@@ -21,6 +22,7 @@ function App() {
       {/* <Route path="/music" element={<Music />} /> */}
       <Route path="/friends" element={<Friends/>} />
       <Route path="/confirmEmail" element={<ConfirmEmail />} />
+      <Route path="/messenger" element={<Messenger />} />
     </Routes>
   );
 }

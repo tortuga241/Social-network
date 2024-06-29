@@ -25,6 +25,9 @@ const MainMenu = () => {
             case '/friends':
                 setActiveMenuItem("Друзья");
                 break;
+            case '/messenger':
+                setActiveMenuItem("Мессенджер");
+                break;
             default:
                 setActiveMenuItem("");
         }
@@ -36,7 +39,7 @@ const MainMenu = () => {
                 <div className="TextContentMenu">
                     <Link to="/" className={`TextMenu ${activeMenuItem === "Профиль" ? "active" : ""}`} onClick={() => handleMenuItemClick("Профиль")}>Главная</Link>
                     {/* <Link to="/feed" className={`TextMenu ${activeMenuItem === "Новости" ? "active" : ""}`} onClick={() => handleMenuItemClick("Новости")}>Новости</Link> */}
-                    <p className={`TextMenu ${activeMenuItem === "Мессенджер" ? "active" : ""}`} onClick={() => handleMenuItemClick("Мессенджер")}>Мессенджер</p>
+                    <Link to="/messenger" className={`TextMenu ${activeMenuItem === "Мессенджер" ? "active" : ""}`} onClick={() => handleMenuItemClick("Мессенджер")}>Мессенджер</Link>
                     <Link to="/friends" className={`TextMenu ${activeMenuItem === "Друзья" ? "active" : ""}`} onClick={() => handleMenuItemClick("Друзья")}>Друзья</Link>
                     <p className={`TextMenu ${activeMenuItem === "Сообщества" ? "active" : ""}`} onClick={() => handleMenuItemClick("Сообщества")}>Сообщества</p>
                     <p className={`TextMenu ${activeMenuItem === "Фотографии" ? "active" : ""}`} onClick={() => handleMenuItemClick("Фотографии")}>Фотографии</p>

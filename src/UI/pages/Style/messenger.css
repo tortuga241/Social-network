@@ -1,0 +1,263 @@
+.MainDivMessenger {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.MainDiv {
+    display: flex;
+    flex-direction: row;
+    width: 1050px;
+    min-height: 450px;
+    margin: auto;
+    display: flex;
+}
+
+.AllMessengerDiv{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.LeftMessengerBlock{
+    font-size: 11pt;
+
+}
+
+
+
+
+/*---------- Поисковая строка ----------*/
+
+.SearchDivMessenger{
+    width: 300px;
+    height: 80px;
+    border-radius: 20px ;
+    background-color: #2D2F30;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.MessengerSearchBar{
+    position: relative;
+    display: flex;
+    align-Items: center;
+   
+}
+
+.InputSearchMess {
+    width: 190px;
+    height: 40px;
+    border: none;
+    color: white;
+    padding-left: 60px;
+    background-color: #181B1D;
+    border-radius: 50px;
+    outline: none; /* Убирает стандартное свечение */
+}
+
+#SearchIconId{
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-Events: none;
+}
+
+
+
+
+/*---------- Блок списка друзей ----------*/
+.MessengerFriendsBlock {
+    width: 260px;
+    height: 800px;
+    background-color: #2D2F30;
+    border-radius: 20px;
+    padding: 0px 20px 0px;
+    overflow-y: scroll;
+}
+
+.FriendPhoto {
+    width: 60px;
+    height: 60px;
+    padding-top: 10px;
+}
+
+.FriendPhoto img {
+    width: 58px;
+    height: 58px;
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+.FriendMessanger {
+    width: 260px;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 20px;
+    padding: 10px 0px;
+}
+
+.FriendMessangerText {
+    padding-left: 10px;
+    margin-bottom: 10px;
+    width: 190px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.FriendMessangerTextUp {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.FriendMessangerTextDown {
+    margin-top: 15px;
+}
+
+.FriendName {
+    color: #90F6FF;
+}
+
+.FriendDate {
+    font-size: 9pt;
+    margin-top: 3px;
+}
+
+
+
+
+/*---------- Блок чата/диалога ----------*/
+.RightMessengerBlock{
+    width: 490px;
+    height: 860px;
+    background-color: #2D2F30;
+    border-radius: 20px;
+    margin-left: 20px;
+    padding: 20px;
+    font-size: 12px;
+}
+
+/*----- Header dialog -----*/
+
+.DialogHeader{
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.DialogHeaderLeftSide{
+    width: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.DialogHeaderLeftSideName{
+    color: #90F6FF;
+    font-size: 14pt;
+    margin-top: 4px;
+}
+
+.DialogHeaderLeftSideTime{
+    margin-top: 10px;
+}
+
+.DialogHeaderRightSide {
+    width: 111px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; 
+    margin-bottom: 12px;
+}
+
+#SearchDialogIcon {
+    width: 20px;
+    height: 20px;
+}
+
+#DialogSett {
+    font-size: 25pt;
+    padding: 0 10px 20px; 
+}
+
+.FriendDialogImg {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+.DialogDate{
+    text-align: center;
+    margin: 15px 0 15px 0px;
+}
+
+
+/*----- Main dialog -----*/
+
+.MainDialog1{
+    display: flex;
+    flex-direction: row;
+}
+
+.DialogNameTime{
+    width: 103px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.DialogName{
+    color:  #90F6FF;
+    font-size: 11pt;
+}
+
+.DialogTime{
+    font-size: 8pt;
+    margin-top: 5px;
+}
+
+.DialogText{
+    margin-left: 10px;
+    font-size: 10pt;
+}
+
+.DialogNameTime2{
+    width: 120px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.DialogTextInput{
+    display: block;
+    margin-top: 7px;
+    width: 100%;
+    height: 40px;
+    background-color: #181B1D;
+    border-radius: 25px;
+}
+
+.IntoDialogTextInput{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.DialogInput {
+    width: 375px;
+    border: none;
+    color: white;
+    background-color: #181B1D;
+    outline: none; /* Убирает стандартное свечение */
+}
+

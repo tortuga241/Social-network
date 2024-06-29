@@ -1,17 +1,18 @@
-.MainDivNewsPages {
+.MainDivNewsPage {
     display: flex;
     flex-direction: column;
 }
 
-.MainContentPage{
+.MainContentPage {
     display: flex;
     margin: auto;
+    width: 1050px;
 }
 
 .DivForMain {
     display: flex;
     flex-direction: column;
-    width: 210px; /* Задать фиксированную ширину для родительского элемента */
+    width: 180px; /* Задать фиксированную ширину для родительского элемента */
     height: 450px;
 }
 
@@ -20,18 +21,6 @@
     flex-direction: column;
     width: 60%; /* Установить ширину элемента */
     align-items: center;
-}
-
-.AddPostMainDiv {
-    width: 100%;
-}
-
-
-.AddPostMainDiv {
-    width: 600px;
-    height: 75px;
-    background: var(--COLOR-1, #2D2F30);
-    border-radius: 20px;
 }
 
 .AddPost {
@@ -67,4 +56,142 @@
     width: 100px;
     height: 20px;
     margin-top: 12px;
+}
+
+.MainFriendsPart {
+    width: 560px;
+    min-height: 100px;
+    background: var(--COLOR-1, #2D2F30);
+    border-radius: 10px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.FriendsButs {
+    width: 320px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+}
+
+.FriendsButOne {
+    width: 150px;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: var(--COLOR-2, #3C4245);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.FriendsOnlineOnly {
+    margin-left: 20px;
+}
+
+.FriendsButTwo {
+    width: 160px;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: var(--COLOR-2, #3C4245);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.kolvoFriends {
+    color: rgb(167, 167, 167);
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.DivForFriendsComp {
+    display: flex;
+    flex-direction: column;
+    min-height: 100px;
+}
+
+.RightFilterDivFriends {
+    width: 210px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--COLOR-1, #2D2F30);
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+
+.PunktForBut {
+    width: 180px;
+}
+
+.PunktForBut button {
+    width: 170px;
+    height: 30px;
+    background: var(--COLOR-2, #3C4245);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.ButBottomGruz {
+    margin-top: 20px;
+}
+
+.ButGruz {
+    width: 200px;
+    height: 40px;
+    color: #90F6FF;
+    background: var(--COLOR-3, #3B5355);
+    border-radius: 50px;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.SearchIconIcon {
+    width: 25px;
+    height: 25px;
+    color: white;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.InputWithAvatarField {
+    width: 460px;
+}
+
+.inputFriends {
+    color: white;
+    width: 450px;
+    height: 25px;
+    background: var(--Color-5, #181B1D);
+    border: none;
+    padding-left: 5px;
+    outline: none; 
+}
+
+
+.AddPostMainDiv {
+    width: 600px;
+    min-height: 80px;
+    background: var(--COLOR-1, #2D2F30);
+    color: white;
+    border-radius: 10px;
 }
