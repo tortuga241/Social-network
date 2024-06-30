@@ -50,9 +50,10 @@ router.post('/userBackgroundUpload', fileMiddleware.single('background'), async(
           }
         });
 
-        await UsersTab.update({
-          avatarPath: `userBackgrounds/${req.body.userName}.png`
-        })
+        await UsersTab.update(
+          { backgroundPath: `userBackgrounds/${req.body.userName}.png` },
+          { where: { login: req.body.userName } }
+        )
         res.json({status: '200'})
       }
     } catch (e) {
