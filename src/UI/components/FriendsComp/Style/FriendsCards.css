@@ -17,6 +17,9 @@
     height: 80px;
     border-radius: 50%;
     background-color: black;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     border: none;
 }
 
@@ -56,7 +59,7 @@
 
 
 
-.user-statys-frinds-1, .user-statys-frinds-2, .user-statys-frinds-3, .user-statys-frinds-4 {
+.usOnline, .user-statys-frinds-2, .user-statys-frinds-3, .usOffline {
     width: 16px;
     height: 16px;
     border: solid 1px black;
@@ -66,7 +69,7 @@
     margin-top:  55px;
 }
 
-.user-statys-frinds-1.active {
+.usOnline {
     display: block;
     background-color: rgb(13, 147, 209); /* Онлайн */
 }
@@ -81,7 +84,7 @@
     background-color: rgb(13, 147, 209); /* Дефолтный */
 }
 
-.user-statys-frinds-4.active {
+.usOffline {
     display: block;
     background-color: gray; /* Не в сети */
 }

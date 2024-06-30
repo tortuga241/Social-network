@@ -9,6 +9,7 @@ import NewsPage from './UI/pages/NewsPage.jsx';
 import Messenger from './UI/pages/Messenger.jsx';
 import Friends from './UI/pages/Frriends.jsx';
 import ConfirmEmail from './UI/pages/confirmEmail.jsx'
+import Requests from './UI/pages/Requests.jsx'
 import './App.css';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       <Route path="/register" element={<Registr />} />
       <Route path="/forgotPassword" element={<ForgotPassword />} />
       <Route path="/recoveryToken/:token" element={<CreateNewPasswordPage />} />
+      <Route path='/friends/requests' element={<Requests />} />
       <Route path="/" element={<NewsPage />} />
       {/* <Route path="/music" element={<Music />} /> */}
       <Route path="/friends" element={<Friends/>} />

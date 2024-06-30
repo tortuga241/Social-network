@@ -103,6 +103,7 @@ const ModalWindow = ({ isOpen, onClose }) => {
                     <input 
                         type="file"
                         onChange={(e) => {setBackground(e.target.files[0])}}
+                        id='xexe'
                         className='Background-img'>
                     </input>
                 </div>

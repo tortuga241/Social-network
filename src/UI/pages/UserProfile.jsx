@@ -70,6 +70,7 @@ const UserProfile = () => {
             .then(response => {
                 if(response.status === 200){
                     console.log('200')
+                    console.log(`-----------------------FRIENDS-----------------------`)
                     console.log(response.friends)
                     setFriends(response.friends)
                     // console.log(friends.length)
@@ -106,6 +107,39 @@ const UserProfile = () => {
         setOnlineValue(onlineFriends)
     }, [friends])
 
+    useEffect(() => {
+        fetch(`http://localhost:3000/friends/${nowUser.login}`, {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'},
+        })
+            .then(response => response.json())
+            .then(response => {
+                const friendExist = response.friends.some(friend => friend.login === login)
+
+                if(!friendExist || friendExist.length == 0){
+                    fetch(`http://localhost:3000/friends/userRequests/${nowUser.login}/${login}`, {
+                        method: 'GET',
+                        headers: {'Content-Type': 'application/json'},
+                    })
+                        .then(response => response.json())
+                        .then(response => {
+                            const friendRequestExist = response.friends.some(friendRequest => friendRequest.login === login)
+
+                            if(friendRequestExist || friendRequestExist.length > 0){
+                                // Есть в друзьях
+                                setIsFriend(true)
+                            }else{
+                                // Нет в друзьях
+                                setIsFriend(false)
+                            }
+                        })
+                }else{
+                    // Есть в друзьях
+                    setIsFriend(true)
+                }
+            })
+    })
+
     // Функции
     const handleButtonClick = (buttonName) => {
         setActiveButton(buttonName);
@@ -135,7 +169,30 @@ const UserProfile = () => {
     };
 
     const toggleFriendStatus = () => {
-        setIsFriend(!isFriend);
+        if(isFriend){
+            setIsFriend(false)
+            // Удалить
+            fetch(`http://localhost:3000/friends/remove`, {
+                method: 'DELETE',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    user: nowUser.login,
+                    friend: login
+                })
+            })
+        }else{
+            setIsFriend(true)
+            // Добавить
+
+            fetch(`http://localhost:3000/friends/add`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    user: nowUser.login,
+                    friend: login
+                })
+            })
+        }
     };
 
     const toggleDropdown = () => {
