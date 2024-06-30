@@ -52,9 +52,10 @@ router.post('/userAvatarUpload', fileMiddleware.single('avatar'), async(req, res
           }
         });
         
-        await UsersTab.update({
-          avatarPath: `userAvatars/${req.body.userName}.png`
-        })
+        await UsersTab.update(
+          { avatarPath: `userAvatars/${req.body.userName}.png` },
+          { where: { login: req.body.userName } }
+        )
         res.json({status: '200'})
       }
     } catch (e) {

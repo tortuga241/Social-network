@@ -1,11 +1,18 @@
 const express = require('express')
-const { Op } = require('sequelize')
+const { Op, Sequelize } = require('sequelize')
 const bodyParser = require('body-parser')
 const FriendsTab = require('../database/friends')
 const UsersTab = require('../database/users')
 
 const router = express.Router()
 router.use(bodyParser.json())
+
+
+
+
+// --------------------------- ДОБАВИТЬ
+
+
 
 router.post('/add', async(req, res) => {
     const user = req.body.user
@@ -32,10 +39,6 @@ router.post('/add', async(req, res) => {
         user,
         friend,
     })
-    const AddFriend2 = await FriendsTab.create({
-        user: friend,
-        friend: user
-    })
 
     res.json({
         status: 200,
@@ -43,6 +46,18 @@ router.post('/add', async(req, res) => {
     })
     res.end()
 })
+
+
+
+
+
+
+
+
+// -------------------------- УДАЛИТЬ
+
+
+
 
 router.delete('/remove', async(req, res) => {
     const user = req.body.user
@@ -72,12 +87,24 @@ router.delete('/remove', async(req, res) => {
         }
     })
 
+    const RemoveFriend2 = await FriendsTab.destroy({
+        where: {
+            user: friend,
+            friend: user
+        }
+    })
+
     res.json({
         status: 200,
         error:null
     })
     res.end()
 })
+
+
+
+//------------------------------- ПОЛУЧИТЬ
+
 
 router.get('/:user', async(req, res) => {
     const user = req.params.user
@@ -93,11 +120,16 @@ router.get('/:user', async(req, res) => {
         return
     }
 
-    const userFriends = await FriendsTab.findAll({
+    const friends = await FriendsTab.findAll({
         where: {
-            user: user
+          user: user,
+          friend: {
+            [Op.in]: Sequelize.literal(`(SELECT \`user\` FROM \`myfriends\` WHERE \`friend\` = '${user}')`)
+          }
         }
-    })
+    });
+
+    const userFriends = friends.map(friendship => friendship.friend);
 
     if(!userFriends){
         res.json({
@@ -111,12 +143,16 @@ router.get('/:user', async(req, res) => {
     for (let i = 0; i < userFriends.length; i++) {
         const user = await UsersTab.findOne({
             where: {
-                login: userFriends[i].friend
+                login: userFriends[i]
             }
         })
         
         FriendsAccounts.push(user)
     }
+
+    FriendsAccounts = FriendsAccounts.filter(friend => friend !== null)
+
+    console.log(FriendsAccounts)
 
     res.json({
         friends: FriendsAccounts,
@@ -125,6 +161,149 @@ router.get('/:user', async(req, res) => {
     })
     res.end()
 })
+
+router.get('/userRequests/:user/:friend', async(req, res) => {
+    const user = req.params.user
+    const friend = req.params.friend
+
+    let FriendsAccounts = []
+
+    if(!user){
+        res.json({
+            status: 400,
+            error: 'Get all friends: user is null'
+        })
+        res.end()
+        return
+    }
+
+    const friends = await FriendsTab.findAll({
+        where: {
+          user,
+          friend
+        }
+    });
+
+    if(!friends){
+        res.json({
+            status: 400,
+            error: 'Get all friends: friends undefined'
+        })
+        res.end()
+        return
+    }
+
+    for (let i = 0; i < friends.length; i++) {
+        const user = await UsersTab.findOne({
+            where: {
+                login: friends[i].friend
+            }
+        })
+        
+        FriendsAccounts.push(user)
+    }
+
+    FriendsAccounts = FriendsAccounts.filter(friend => friend !== null)
+
+    console.log(FriendsAccounts)
+
+    res.json({
+        friends: FriendsAccounts,
+        status: 200,
+        error: null
+    })
+    res.end()
+})
+
+router.get('/requests/:user', async(req, res) => {
+    const user = req.params.user
+
+    let FriendsAccounts = []
+
+    if(!user){
+        res.json({
+            status: 400,
+            error: 'Get all friends: user is null'
+        })
+        res.end()
+        return
+    }
+
+    const friends = await FriendsTab.findAll({
+        where: {
+          friend: user
+        }
+    });
+
+    if(!friends){
+        res.json({
+            status: 400,
+            error: 'Get all friends: friends undefined'
+        })
+        res.end()
+        return
+    }
+
+    for (let i = 0; i < friends.length; i++) {
+        const friend = await FriendsTab.findOne({
+            where: {
+                friend: friends[i].user,
+                user
+            }
+        })
+        console.log(`1`+user)
+        console.log(`2`+friends[i].friend)
+        if(!friend || friend.length == 0){
+
+            const user = await UsersTab.findOne({
+                where: {
+                    login: friends[i].user
+                }
+            })
+        
+            FriendsAccounts.push(user)
+        }
+    }
+
+    FriendsAccounts = FriendsAccounts.filter(friend => friend !== null)
+
+    console.log(FriendsAccounts)
+
+    res.json({
+        friends: FriendsAccounts,
+        status: 200,
+        error: null
+    })
+    res.end()
+})
+
+// ======================================
+
+// router.get('/test/:user', async(req,res) => {
+//     const user = req.params.user
+
+//     try{
+        
+
+        
+//         res.json(friendsList)
+//     }catch(e){
+//         console.error(`ERROR!!!!!!!!!!!!!!!!!!!!!!!!! : ${e}`)
+//         res.status(500)
+//     }
+// })
+
+
+
+
+// -----------------------
+
+
+
+
+
+
+
 
 router.get('/general', async(req, res) => {
     const user_1 = req.body.user1
@@ -181,6 +360,35 @@ router.get('/general', async(req, res) => {
     })
     res.end()
 })
+
+// router.get('/search/:content/:login', async(req, res) => {
+//     const data = req.params.content
+//     const login = req.params.login
+
+//     const findedUsers = await FriendsTab.findAll({
+//         where: {
+//             friend: { [Op.like]: `%${data}%` },
+//             user: login
+//         }
+//     })
+
+//     if(!findedUsers){
+//         res.json({
+//             status: 400,
+//             error: 'GET searching accounts: users undefined for entered parameters'
+//         })
+//         res.end()
+//         return
+//     }
+
+//     res.json({
+//         findedUsers,
+//         status: 200,
+//         error: null
+//     })
+// })
+
+
 module.exports = router
 
 // Добавить друга
