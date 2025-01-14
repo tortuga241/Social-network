@@ -6,3 +6,24 @@ Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
+# Raccoon
+Добро пожаловать! Проект с функционалом социальной сети. 
+
+## Установка
+Шаги для установки и запуска проекта:
+
+Скачиваем всё и распаковыаем.
+
+npm install
+
+Для запуска проекта:
+npm run dev 
+
+Открываем второй терминал
+Для запуска базы данных нам необходимо скачать XAMPP и указать ему порт работы 3325. 
+Затем войти в MySQL и совместить наш проект с базоый данных
+Запускам XAMPP
+Запускаем базу данных
+npm start 
